@@ -1,0 +1,35 @@
+{% extends "base/navbar.html" %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+<title>HealthNet - Stats</title>
+
+{% if hospital == None %}
+<h1>Statistics for the system</h1>
+{% else %}
+<h1>Statistics for {{hospital}}</h1>
+{% endif %}
+
+<h2>For the date range: <br>
+    {{startDay}} - {{endDay}}</h2>
+<p><a href="{% url 'systemLog:filterStats' %}">Filters</a></p>
+<h3>Visits to hospital: {{visits}}</h3>
+<h3>Average Visits per patient: {{averageVisit}}</h3>
+<h3>Average Length of stay per visit: {{averageStay}}</h3>
+<br>
+
+<p><a href="{% url 'systemLog:log' %}">Return to the log</a></p>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="log"]').addClass("active");
+    });
+</script> 
+{% endblock scripts %}

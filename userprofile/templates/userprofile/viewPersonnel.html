@@ -1,0 +1,70 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% load staticfiles %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+<title>HealthNet - Personnel</title>
+
+<table class='table table-hover' align="right">
+    <tr>
+        <th class="table-heading" rowspan={{admins|rowSpan}}>Administrators:</th>
+    </tr>
+    {% for adm in admins %}
+    <tr>
+        <td id="half"> <a href="{% url 'profile:AdminView' adm.personID.id %}">{{ adm.personID.user.get_full_name }}</a></td>
+        <td>
+            <a class="confirm longButton" href="{% url 'profile:adminUpdate' adm.id %}">&#x270e; Update Profile</a>
+            <a class="delete longButton" href="{% url 'profile:deleteAdmin' adm.id %}">&#x270e; Remove Personnel</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <th class="table-heading" rowspan={{doctors|rowSpan}}>Doctors:</th>
+    </tr>
+    {% for doc in doctors %}
+    <tr>
+        <td id="half"> <a href="{% url 'profile:AdminView' doc.personID.id %}">{{ doc.personID.user.get_full_name }}</a></td>
+        <td>
+            <a class="confirm longButton" href="{% url 'profile:doctorUpdate' doc.id %}">&#x270e; Update Profile</a>
+
+            <a class="confirm longButton" href="{% url 'profile:moveDoctor' doc.id %}">&#x270e; Move Personnel</a>
+
+            <a class="delete longButton" href="{% url 'profile:deleteDoc' doc.id %}">&#x270e; Remove Personnel</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    <tr>
+        <th class="table-heading" rowspan={{nurses|rowSpan}}>Nurses:</th>
+    </tr>
+    {% for nur in nurses %}
+    <tr>
+        <td id="half"> <a href="{% url 'profile:AdminView' nur.personID.id %}">{{ nur.personID.user.get_full_name }}</a></td>
+        <td>
+            <a class="confirm longButton" href="{% url 'profile:nurseUpdate' nur.id %}">&#x270e; Update Profile</a>
+
+            <a class="confirm longButton" href="{% url 'profile:moveNurse' nur.id %}">&#x270e; Move Personnel</a>
+            }
+            <a class="delete longButton" href="{% url 'profile:deleteNurse' nur.id %}">&#x270e; Remove Personnel</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+
+{% endblock scripts %}

@@ -1,0 +1,306 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% block content %}
+
+    <title>HealthNet - View profile</title>
+
+    <h1>View your profile</h1>
+    {% if request|isPatient %}
+    <table class='table table-hover sixtyfive' style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>User Type</th>
+            <td> Patient</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Insurance information</th>
+        </tr>
+        <tr>
+            <th>Insurance name</th>
+            <td> {{insuranceName}}</td>
+        </tr>
+        <tr>
+            <th>Policy number</th>
+            <td> {{policyNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Emergency Contact information</th>
+        </tr>
+        <tr>
+            <th>Contact name</th>
+            <td> {{emergencyContact.firstName}} {{emergencyContact.lastName}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{emergencyContact.emergencyNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan='2'>Actions</th>
+        </tr>
+        <tr>
+            <td class='center-container' colspan="2">
+                <a class="btn btn-primary confirm" href="{% url 'profile:userUpdate' patientID %}" role="button">&#x270e; Edit your
+                    profile</a>
+                {% if patient.preferredHospital == None %}
+                <a class="btn btn-primary confirm" href="{% url 'profile:preferredHospitals' patient.id %}" role="button">&#x270e; Add your
+                    preferred hospitals</a>
+
+                {% else %}
+                <a class="btn btn-primary confirm" href="{% url 'profile:updatePreferredHospitals' patient.id %}" role="button">&#x270e; Edit your
+                    preferred hospitals</a>
+                {%endif%}
+                <!-- If medical history hasn't been started yet -->
+                {% if medicalID = -1 %}
+                <a class="btn btn-primary confirm" href="{% url 'medical:create' %}" role="button">Start Medical History</a>
+                {% else %}
+                <a class="btn btn-primary confirm" href="{% url 'medical:history' medicalID %}" role="button">View Medical History</a>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+
+    
+
+    {% elif request|isDoctor %}
+    <table class='table table-hover sixtyfive' style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>User Type</th>
+            <td> Doctor</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Professional information</th>
+        </tr>
+        <tr>
+            <th>Specialty</th>
+            <td> {{specialty}}</td>
+        </tr>
+        <tr>
+            <th>License Number</th>
+            <td> {{licenseNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Hospital information</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{hospitalName}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{hospitalAddress}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan='2'>Actions</th>
+        </tr>
+        <tr>
+            <td class='center-container' colspan="2">
+                <a class="btn btn-primary confirm" href="{% url 'profile:doctorUpdate' personID %}" role="button">&#x270e; Edit your
+            profile</a>  
+            </td>
+        </tr>
+    </table>
+
+
+    {% elif request|isNurse %}
+    <table class='table table-hover sixtyfive' style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>User Type</th>
+            <td> Nurse</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Professional information</th>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td> {{department}}</td>
+        </tr>
+        <tr>
+            <th>License Number</th>
+            <td> {{licenseNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Hospital information</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{hospitalName}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{hospitalAddress}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan='2'>Actions</th>
+        </tr>
+        <tr>
+            <td class='center-container' colspan="2">
+                <a class="btn btn-primary confirm" href="{% url 'profile:nurseUpdate' personID %}" role="button">&#x270e; Edit your
+            profile</a>
+            </td>
+        </tr>
+    </table>
+
+
+    {% elif request|isAdmin %}
+    <table class='table table-hover sixtyfive' style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>User Type</th>
+            <td> Hospital Admin</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}} s</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Hospital information</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{hospitalName}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{hospitalAddress}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan='2'>Actions</th>
+        </tr>
+        <tr>
+            <td class='center-container' colspan="2">
+                <a class="btn btn-primary confirm" href="{% url 'profile:adminUpdate' personID %}" role="button">&#x270e; Edit your
+            profile</a>
+            </td>
+        </tr>
+    </table>
+
+    {% elif request|isRoot %}
+    <table class='table table-hover sixtyfive' style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>User Type</th>
+            <td> System Root</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+    </table>
+
+    <div class='center-container'>
+        <a class="btn btn-primary confirm" href="{% url 'profile:rootUpdate' personID %}" role="button">&#x270e; Edit your
+            profile</a>
+    </div>
+    {% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="profile"]').addClass("active");
+    });
+</script> 
+{% endblock scripts %}

@@ -1,0 +1,116 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% block content %}
+<!-- Set the title of the page to be Home --> 
+<title> HealthNet - Profile</title>
+<div class="container">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>Welcome to HealthNet, {{ user.first_name }}!</h1>
+    </div>
+
+    {% if request|isDoctor or request|isNurse or request|isPatient %}
+    <div class="container">
+	    <div class="row">
+	      <div class="col-sm-6">
+	        <div class="panel panel-primary">
+	          <div class="panel-heading">
+	            <h2 class="panel-title helpText">Here are your upcoming appointments:</h2>
+	          </div>
+	          <div class="panel-body">
+	          {% if appointments %}
+	          	{% for app in appointments %}
+	          		<h4><li>Appointment with <b>{{app.doctorID}}</b> at <b>{{app.aptTime}}</b> on {{app.aptDate}}</li></h4>
+	          	{% endfor %}
+	          {% else %}
+	          <h4>No upcoming appointments!</h4>
+	          {% endif %}
+	          </div>
+	          <div class='panel-footer'>
+	          	<h2 class='panel-title helpText'><a class='helpText' href="{% url 'appointment:view' %}"> &#9654; Click here to view your appointments. </a></h2>
+	          </div>
+	        </div>
+	      </div>
+
+	      <div class="col-sm-6">
+		    {% if messageCount >= 1 %}
+	        <div class="panel panel-danger">
+	        {% else %}
+	        <div class="panel panel-primary">
+	        {% endif %}
+	          <div class="panel-heading">
+	            <h2 class="panel-title helpText">You have {{messageCount}} new messages:</h2>
+	          </div>
+	          <div class="panel-body">
+	          {% if messages %}
+	          	{% for m in messages %}
+	          		<h4><li>Message from <b>{{m.sender}}</b> sent at <b>{{m.sent_at}}</b></li></h4>
+	          	{% endfor %}
+	          {% else %}
+	          <h4>No new messages!</h4>
+	          {% endif %}
+	          </div>
+	          <div class='panel-footer'>
+	          	<h2 class='panel-title helpText'><a class='helpText' href="{% url 'messages:inbox' %}"> &#9654; Click here to view your inbox. </a></h2>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	 </div>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
+
+{% block loginForm %}
+	<!-- If the account is disabled -->
+	{% if disabledAccount %}
+		<h3>The account you entered has been disabled. Please click
+			<a href="{% url 'register:createPatient' %}">here</a>
+		to re-register.</h3>
+	<!-- Otherwise show the forms-->
+	{% else %}
+
+    <h1 id="login-info">Login to HealthNet</h1>
+
+	    <div id='form-container'>
+	        <!-- Check if the login attempt has failed-->
+	        {% if failedLogin %}
+	            <h3>The username or password entered was incorrect. Please try again.</h3>
+	        {% endif %}
+
+	        <!-- Display the form-->
+	        <form id="login_form" class='form-center' method="post" action="{% url 'profile:userLogin' %}">
+	            {% csrf_token %}
+	            <div class='form-group'>
+	                <label for='username'> Username </label>
+	                <input class="form-control" id="username" type="text" name="username" value="" size="50"/>
+	            </div>
+
+	            <div class='form-group'>
+	                <label for='password'> Password </label>
+	                <input class="form-control" id="password" type="password" name="password" value="" size="50"/>
+	            </div>
+
+	            <input class="btn btn-default confirm" type="submit" name="submit" value="Login"/>
+	        </form>
+	    </div>
+
+	    <h3 id='header'>
+	        <a href="{% url 'register:createPatient' %}">Are you not registered with HealthNet yet?</a>
+	    </h3>
+	{% endif %}
+
+{% endblock loginForm %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Add the active class
+		$('a[data-item="home"]').addClass("activeHome");
+	});
+</script> 
+{% endblock scripts %}

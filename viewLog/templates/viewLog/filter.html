@@ -1,0 +1,70 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link type="text/css" href="{% static 'css/bootstrap-datetimepicker.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block content %}
+
+<title>HealthNet - Filter Log</title>
+
+<div id="form-container">
+    <h3>Filter the Log view</h3>
+
+    {% if stats %}
+    <form id="filterForm" class='form-center' method="post" action="{% url 'systemLog:filterStats' %}">
+    {% else %}
+    <form id="filterForm" class='form-center' method="post" action="{% url 'systemLog:filter' %}">
+    {% endif %}
+
+        {% csrf_token %}
+        {{filterForm.as_p}}
+
+        {% if stats %}
+        <a class='neutral' href="{% url 'systemLog:stats' %}">Cancel</a>
+        {% else %}
+        <a class='neutral' href="{% url 'systemLog:log' %}">Cancel</a>
+        {% endif %}
+        <input class='confirm' type="submit" name="Submit" value="Filter"/>
+    </form>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<script src="{%static 'js/moment.min.js'%}"></script>
+<script src="{%static 'js/bootstrap-datetimepicker.js'%}"></script>
+
+
+<script type="text/javascript">
+$(function() {
+        $('#startdatepicker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: false,
+            maxDate: moment(),
+        });
+});
+$(function() {
+        $('#enddatepicker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: false,
+            maxDate: moment(),
+        });
+
+});
+
+</script>
+
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="log"]').addClass("active");
+        });
+
+</script>
+
+
+{% endblock scripts %}

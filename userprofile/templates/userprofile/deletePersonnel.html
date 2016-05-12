@@ -1,0 +1,27 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+    <!-- Set the title of the page to be what is on the page -->
+<title>HealthNet - Delete Doctor</title>
+
+<form id="DeleteDoctor" method="post" action="{% url 'profile:deleteDoc' personnelID %}">
+    {% csrf_token %}
+        <h3>{{ user.first_name }}, are you sure you want to remove:
+            {{ personnel.personID.user.first_name }} from {{ personnel.hospitalID }} </h3> {{ form.as_p }}
+            <input class='delete' type="submit" name='submit' value="Delete this doctor"/>
+</form>
+
+<h3><a href="{% url 'profile:viewAllPersonnel' %}">Cancel</a></h3>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    // Add the active class
+        $('li[data-item="hospital"]').addClass("active");
+    });
+</script>
+
+{% endblock scripts %}

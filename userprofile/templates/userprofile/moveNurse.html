@@ -1,0 +1,27 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+{% block content %}
+
+{% if request|isAdmin %}
+<title>HealthNet - Move Nurse</title>
+
+<form id="MoveNurse" method="post" action="{% url 'profile:moveNurse' nurse.id %}">
+    {% csrf_token %}
+    {{nurse.hospitalID }}
+    {{ form.as_p }}
+    <h3>{{ admin }}, are you sure you want to transfer Nurse {{ nurse }}?</h3>
+    <input class='move' type="submit" name='submit' value="Yes, move this nurse"/>
+</form>
+<h3><a href="{% url 'profile:viewAllPersonnel' %}">Cancel</a></h3>
+
+{% elif request|isRoot %}
+<form id="MoveNurse" method="post" action="{% url 'profile:moveNurse' nurse.id %}">
+    {% csrf_token %}
+    {{nurse.hospitalID }}
+    {{ form.as_p }}
+    <h3>{{ root }}, are you sure you want to transfer Nurse {{ nurse }} ?</h3>
+    <input class='move' type="submit" name='submit' value="Yes, move this nurse"/>
+</form>
+<h3><a href="{% url 'profile:viewAllPersonnel' %}">Cancel</a></h3>
+{%endif%}
+{% endblock %}

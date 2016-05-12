@@ -1,0 +1,98 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+{% load staticfiles %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+<title>HealthNet - Log</title>
+
+<div id='containerBlock'>
+    <div id='floatRight'>
+        <h1>System Log</h1>
+        <table class='table table-striped' width="100%">
+            <tr>
+                <th colspan="3"><a href="{% url 'systemLog:filter' %}">Filter</a></th>
+                <th colspan="6"><a href="{% url 'systemLog:stats' %}">Stats</a></th>
+            </tr>
+            <tr>
+                <th width="100">Time:</th>
+                <th width="130">Type:</th>
+                <th>User 1:</th>
+                <th>User 2:</th>
+                <th>Hospital:</th>
+                <th>Secondary Hospital:</th>
+                <th>Appointment:</th>
+                <th>Test Result:</th>
+                <th>Medical History:</th>
+            </tr>
+            {% for logEvent in log %}
+            <tr>
+                <td>
+                    {% if logEvent.timestamp != None %}
+                    {{ logEvent.timestamp }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.type != None %}
+                    {{ logEvent.type }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.user1 != None %}
+                    {{ logEvent.user1 }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.user2 != None %}
+                    {{ logEvent.user2 }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.hospital1 != None %}
+                    {{ logEvent.hospital1 }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.hospital2 != None %}
+                    {{ logEvent.hospital2 }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.appt != None %}
+                    {{ logEvent.appt }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.testResults != None %}
+                    {{ logEvent.testResults }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if logEvent.medHistory != None %}
+                    {{ logEvent.medHistory }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{%static 'js/jquery.min.js' %}"></script>
+<script src="{%static 'js/moment.min.js'%}"></script>
+<script src="{%static 'js/bootstrap-datetimepicker.js'%}"></script>
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="log"]').addClass("active");
+        });
+
+</script>
+{% endblock scripts %}

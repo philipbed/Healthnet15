@@ -1,0 +1,42 @@
+{% extends "base/navbar.html" %}
+
+{% block loginForm %}
+	<!-- If the account is disabled -->
+	{% if disabledAccount %}
+		<h3>The account you entered has been disabled. Please click
+			<a href="{% url 'register:createPatient' %}">here</a>
+		to re-register.</h3>
+	<!-- Otherwise show the forms-->
+	{% else %}
+
+    <h1 id="login-info">Login to HealthNet</h1>
+
+	    <div id='login-container'>
+	        <!-- Check if the login attempt has failed-->
+	        {% if failedLogin %}
+	            <h3>The username or password entered was incorrect. Please try again.</h3>
+	        {% endif %}
+
+	        <!-- Display the form-->
+	        <form id="login_form" class='form-center' method="post" action="{% url 'profile:userLogin' %}">
+	            {% csrf_token %}
+	            <div class='form-group'>
+	                <label for='username'> Username </label>
+	                <input class="form-control" id="username" type="text" name="username" value="" size="50"/>
+	            </div>
+
+	            <div class='form-group'>
+	                <label for='password'> Password </label>
+	                <input class="form-control" id="password" type="password" name="password" value="" size="50"/>
+	            </div>
+
+	            <input class="btn btn-default confirm" type="submit" name="submit" value="Login"/>
+	        </form>
+	    </div>
+
+	    <h3 id='header'>
+	        <a href="{% url 'register:createPatient' %}">Are you not registered with HealthNet yet?</a>
+	    </h3>
+	{% endif %}
+
+{% endblock loginForm %}
