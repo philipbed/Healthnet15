@@ -540,7 +540,8 @@ This install process will assume that the user already has python and django ins
 	2. click Admin Interface at the top of the page.
 
 #bugs and disclaimers#
-
+Messaging as a doctor does not work.
+Link to upload tests are not on the nav bar
 
 #Known missing features#
 
