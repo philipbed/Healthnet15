@@ -1,0 +1,26 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+
+<title> HealthNet - Send a Message </title>
+
+<h1> {{ user.first_name }}, please compose your message </h1>
+<div id="form-container">
+	<form id="messageForm" class='form-center' method="post" action="{% url 'messages:send' %}">
+	    {% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" class='confirm' value='Send'/>
+	</form>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Add the active class
+		$('li[data-item="messages"]').addClass("active");
+	});
+</script> 
+{% endblock %}

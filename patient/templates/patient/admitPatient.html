@@ -1,0 +1,88 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% block style %}
+    <link type="text/css" href="{% static 'css/bootstrap-datetimepicker.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block content %}
+
+
+<form id="AdmitPatient" method="post" action="{% url 'patient:admitPatient' apptID %}">
+        {% csrf_token %}
+    <h3>Are you sure that you want to admit {{ patient.personID }} to {{ hospital }} for this reason:
+    {{currAppt.reason}} </h3>
+    {{ form.endDate.errors }}
+    <label for="id_date_field" style="float:left;margin-top:5px;">Date [MM/DD/YYYY]:</label>
+
+    <div class="container">
+        <div class="row">
+            <div class="form-group">
+                <div class='col-sm-6' style="width:20%">
+                    <div id="datepicker" class="input-group date">
+                        <input id="id_endDate" class="form-control" name="endDate" type="text"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+
+                <!--  The time field for the appointment -->
+                {{ appointmentForm.aptTime.errors }}
+                <label for="id_time" style="float:left;margin-top:5px;">Time [HH:MM]:</label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="timepicker" class="input-group date">
+                                    <input id="id_endTime" name="endTime" class="form-control" type="text"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+    <input class='delete' type="submit" name='submit' value="Yes, admit"/>
+    <a href="{% url 'appointment:view' %}">Cancel</a>
+</form>
+
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{%static 'js/moment.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap-datetimepicker.js'%}"></script>
+    <script type="text/javascript">
+        $('#datepicker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: true
+        });
+    </script>
+    <script type="text/javascript">
+        $('#timepicker').datetimepicker({
+            stepping: 30,
+            viewDate: false,
+            format: 'LT',
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="patients"]').addClass("active");
+        });
+    </script>
+{% endblock scripts %}

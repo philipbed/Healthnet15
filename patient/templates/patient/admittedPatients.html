@@ -1,0 +1,50 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+
+{% block style %}
+<!-- Page specific styling -->
+<link type='text/css' href="{% static 'css/appointment.css' %}" rel='stylesheet'/>
+{% endblock style %}
+
+{% block content %}
+
+{# {% if request|isDoctor or request|isNurse %} #}
+<title>HealthNet - Discharge </title>
+{# {% endif %} #}
+
+<h1 class='helpText'>Patients admitted to {{ hospital }}</h2>
+<div id='containerBlock'>
+        {#{% if not request|isPatient %}#}
+        <table class='table table-striped sixtyfive' style='margin: 0 auto;'>
+            <th>Patient:</th>
+            <th>Discharge Date:</th>
+            <th>Discharge Time:</th>
+            {% for stay in extendedStays %}
+            <tr>
+
+                <td> {{ stay.getPatient }}</td>
+                <td> {{ stay.endDate }}</td>
+                <td> {{ stay.endTime }} </td>
+                {% if request|isDoctor %}
+                <td>
+                    <a class='confirm' href="{% url 'patient:discharge' stay.id %}"> &#x270e; Discharge</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="patients"]').addClass("active");
+        });
+    </script> 
+
+{% endblock scripts %}

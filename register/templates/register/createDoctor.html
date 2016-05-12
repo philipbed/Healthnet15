@@ -1,0 +1,44 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% block content %}
+    <title>HealthNet - Doctor Registration</title>
+
+    <h1>Register a Doctor with HealthNet</h1>
+
+    <div id="form-container">
+    <form id="user_form" class='form-center' method="post" action="{% url 'register:createDoctor' %}"enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <!-- Display each form. The as_p method wraps each element in a paragraph
+             (<p>) element. This ensures each element appears on a new line,
+             making everything look neater. -->
+        <h3>User information:</h3>
+        {{ user_form.as_p }}
+        <h3>Personal information:</h3>
+        {{ doctorRegistration.as_p }}
+        {{ addressForm.as_p }}
+        <h3>Doctor information:</h3>
+        {{ doctorForm.as_p }}
+
+
+        <!-- Provide a button to click to submit the form. -->
+        <input class='confirm right' type="submit" name="submit" value="Register"/>
+        <a class='delete' href="{% url 'profile:userLogin' %}">Cancel</a>
+    </form>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+
+{% endblock scripts %}
+

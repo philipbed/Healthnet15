@@ -1,0 +1,33 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+<title> HealthNet - View patient list</title>
+
+<h1 class='helpText'> View your patient list </h1>
+    <table class="table table-hover">
+        <tr class='table-heading'> 
+            <th> Patients</th>
+            <th> Actions </th>
+        </tr>
+
+        <!--Listed patients are restricted in views.py-->
+        {% for pat in patients %}
+        <tr>
+            <td>{{pat}}</td>
+            <td> <a class='neutral' href="{% url 'patient:patientDetails' pat.id%}"> View Details</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock content %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="patients"]').addClass("active");
+        });
+    </script> 
+
+{% endblock scripts %}

@@ -1,0 +1,62 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link type="text/css" href="{% static 'css/messages.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<title> HealthNet - View your messages </title>
+
+{% if received %}
+<div class='center-container helpText'>
+	<h3><a href="{% url 'messages:inbox' %}">&#9668; Back to inbox</a></h3>
+</div>
+
+<div id='text-container'>
+  <div class='circle'> {{ initials }} </div>
+  <div class='message'>
+  	<div id='subject'>Subject: {{ message.subject }}</div>
+  	<div id='text'> {{ message.body }} </div>
+  	<div id='date'> {{ message.sent_at|date:_("DATETIME_FORMAT")}}</div>
+  </div>
+</div>
+
+{% elif received == False %}
+<div class='center-container helpText'>
+	<h3><a href="{% url 'messages:outbox' %}">&#9668; Back to outbox</a></h3>
+</div>
+
+<div id='text-container'>
+  <div class='sentCircle'> {{ initials }} </div>
+  <div class='sentMessage'>
+  	<div id='subject'>Subject: {{ message.subject }}</div>
+  	<div id='text'> {{ message.body }} </div>
+  	<div id='sentDate'> {{ message.sent_at|date:_("DATETIME_FORMAT")}}</div>
+  </div>
+</div>
+{% endif %}
+
+
+{% if reply_form %}
+	<div id='form-container' class=''>
+		<form id='messageForm' class='form-center' action="{% url 'messages:reply' message.id %}" method="post">
+			{% csrf_token %}
+			{{ reply_form.as_p }}
+			<input class='confirm' type="submit" value="Send"/>
+		</form>
+	</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="messages"]').addClass("active");
+    });
+</script> 
+{% endblock %}
+

@@ -1,0 +1,20 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <link type="text/css" href="{% static 'css/bootstrap-datetimepicker.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block content %}
+
+<h3 class='helpText'> Are you sure you want to transfer {{patient}} to {{othHospital}}?</h3> 
+<div class='center-container'>
+	<form id="transferPatient" method="post" action="{% url 'patient:transferPatient' patID%}">
+	    {%csrf_token%}
+	    {{ form }}
+	    <a class='neutral' href="{% url 'patient:patientDetails' patID%}">Cancel</a>
+	    <input class='delete' type="submit" name='submit' value="Yes, transfer"/>
+	</form>
+</div>
+
+{%endblock%}

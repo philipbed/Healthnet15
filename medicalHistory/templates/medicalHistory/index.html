@@ -1,0 +1,1405 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+
+<title>HealthNet - Medical History </title>
+
+{% if request|isPatient %}
+    <table class="table table-hover sixtyfive table-responsive" style='margin: 0 auto;'>
+        <tr>
+            <th class='table-heading' colspan="4">Medical History</th>
+        </tr>
+        {% if not create %}
+        <tr>
+            <td class='center-container' colspan="4"> 
+                <a class='confirm longButton' href="{% url 'medical:update' medicalID %}">&#x270e; Update</a>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th class='table-heading' colspan="4">General</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Age</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAge}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Height</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHeight}} inches</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Weight</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWeight}}lbs</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Systems</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Cancer</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histCancer}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Alcoholism</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholism}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Ulcers</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histUlcers}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Cholesterol</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histCholesterol}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Asthma</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAsthma}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Heart Trouble</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHeartTrouble}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; KidneyDisease</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histKidneyDisease}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Sickle Cell Anemia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSickleCellAnemia}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Tuberculosis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTuberculosis}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; HIV/AIDs</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHiv}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Emphysema</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histEmphysema}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; High Blood Pressure</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHighBloodPressure}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Bleeding Disorder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histBleedingDisorder}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Liver Disorder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histLiverDisorder}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Birth Defects</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histBirthDefects}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Stroke</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histStroke}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histArthritis}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Diabetes</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histDiabetes}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart Attack</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.HeartAttack}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Gout</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histGout}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; More Information</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSystems}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSystemsOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Surgery/Fractures</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Tonsils</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryTonsils}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Breasts</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryBreast}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Appendix</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryAppendix}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Uterus</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryUterus}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Gall Bladder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryGallBladder}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Ovaries</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryOvaries}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Stomach</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryStomach}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Prostate</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryProstate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Colon</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryColon}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Thyroid</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryThyroid}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Kidney</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryKidney}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Hernia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryHernia}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryHeart}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Pacemaker</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryPacemaker}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Joint Replacement</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryJointReplace}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Extremities</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryExtremities}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryOther}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <th class='table-heading' colspan="4">Allergies</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Penicillin</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAllergyPenicillin}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Sulfa</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAllergySulfa}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Metal</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAllergyMetal}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; None</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAllergyNone}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histMedicationOther}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Other Food Allergies</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAllergyFoodOther}}</p>    
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other Medication Allergies</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histMedicationOther}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+        <tr>
+            <th class='table-heading' colspan="4">Conditions</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Shortness of Breath</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionShortBreath}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Chest Pain</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionChestPain}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Weight Loss</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionWeightLoss}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Constipation</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionConstipation}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Fever</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionFever}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Vision</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionVision}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Headache</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionHeadache}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Urination</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionUrination}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Numbness</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionNumbness}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Tobacco</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoFrequency}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Duration</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoDuration}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoOther}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Alcohol</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Beer Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholBeer}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Liquor Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholShots}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other Drugs</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histDrugOther}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Family</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Cancer</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyCancer}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Diabetes</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyDiabetes}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Rheumatoid Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyRheumatoidArthritis}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyArthritis}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Gout</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyGout}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Bleeding</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyBleeding}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Sickle Cell Anemia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilySickleCellAnemia}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Heart Disease</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyHeartDisease}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyOther}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Social</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Relationship</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histRelationship}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Work</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWork}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Work Details</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWorkExplain}}</p>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="4">Primary Care Provider Information</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Primary Care Provider</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histPrimaryName}}</p>
+            </td>
+            <th>
+                <p align="left">&nbsp; Physician Number </p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histPrimaryNumber}}</p>
+            </td>
+        </tr>
+    </table>
+
+{% elif request|isDoctor or request|isNurse%}
+    <table class='table table-hover' style="width:50%" align="left">
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Insurance information</th>
+        </tr>
+        <tr>
+            <th>Insurance name</th>
+            <td> {{insuranceName}}</td>
+        </tr>
+        <tr>
+            <th>Policy number</th>
+            <td> {{policyNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Emergency Contact information</th>
+        </tr>
+        <tr>
+            <th>Contact name</th>
+            <td> {{emergencyContact.firstName}} {{emergencyContact.lastName}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{emergencyContact.emergencyNumber}}</td>
+        </tr>
+    </table>
+
+    {% if medical != None %}
+    <table class="table table-hover" style="width:50%" align="right">
+        <tr>
+            <th class='table-heading' colspan="2">Medical History
+                {% if request|isDoctor%}
+                <a href="{% url 'medical:update' medicalID %}">Update</a>
+                {% endif %}
+            </th>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">General</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Age</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAge}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Height</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHeight}} inches</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Weight</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWeight}}lbs</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Systems (Displayed if true)</th>
+        </tr>
+        {% if medical.histCancer %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Cancer</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histCancer}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histAlcoholism %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Alcoholism</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholism}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histUlcers %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Ulcers</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histUlcers}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histUlcers %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Cholesterol</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histCholesterol}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histAsthma %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Asthma</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAsthma}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histHeartTrouble %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart Trouble</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHeartTrouble}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histKidneyDisease %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; KidneyDisease</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histKidneyDisease}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSickleCellAnemia %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Sickle Cell Anemia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSickleCellAnemia}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histTuberculosis %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Tuberculosis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTuberculosis}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histHiv %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; HIV/AIDs</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHiv}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histEmphysema %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Emphysema</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histEmphysema}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histHighBloodPressure %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; High Blood Pressure</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histHighBloodPressure}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histBleedingDisorder %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Bleeding Disorder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histBleedingDisorder}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histLiverDisorder %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Liver Disorder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histLiverDisorder}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histBirthDefects %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Birth Defects</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histBirthDefects}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histStroke %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Stroke</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histStroke}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histArthritis %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histArthritis}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histDiabetes %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Diabetes</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histDiabetes}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histHeartAttack %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart Attack</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.HeartAttack}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histGout %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Gout</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histGout}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; More Information</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSystems}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSystemsOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Surgery (Displayed if true)</th>
+        </tr>
+        {% if medical.histSurgeryTonsils %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Tonsils</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryTonsils}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryBreast %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Breasts</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryBreast}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryAppendix %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Appendix</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryAppendix}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryUterus %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Uterus</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryUterus}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryGallBladder %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Gall Bladder</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryGallBladder}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryOvaries %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Ovaries</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryOvaries}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryStomach %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Stomach</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryStomach}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryProstate %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Prostate</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryProstate}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryColon %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Colon</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryColon}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryThyroid %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Thyroid</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryThyroid}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryKidney %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Kidney</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryKidney}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryHernia %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Hernia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryHernia}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryHeart %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryHeart}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryPacemaker %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Pacemaker</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryPacemaker}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryJointReplace %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Joint Replacement</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryJointReplace}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histSurgeryExtremities %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Extremities</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryExtremities}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histSurgeryOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Medications</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Prior</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histMedicationOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Conditions (Displayed if true)</th>
+        </tr>
+        {% if medical.histConditionShortBreath %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Shortness of Breath</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionShortBreath}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionChestPain %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Chest Pain</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionChestPain}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionWeightLoss %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Weight Loss</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionWeightLoss}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionConstipation %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Constipation</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionConstipation}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionFever %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Fever</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionFever}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionVision %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Vision</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionVision}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionHeadache %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Headache</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionHeadache}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionUrination %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Urination</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionUrination}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histConditionNumbness %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Numbness</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histConditionNumbness}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th class='table-heading' colspan="2">Tobacco</th>
+        </tr>
+        {% if medical.histTobaccoCigarettes %}
+        <tr>
+            <td align="center" colspan="2">Displayed if true</td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoFrequency}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Duration</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoDuration}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histTobaccoOther}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th class='table-heading' colspan="2">Alcohol</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Beer Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholBeer}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Liquor Frequency</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histAlcoholShots}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other Drugs</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histDrugOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Family</th>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">Displayed if true</td>
+        </tr>
+        {% if medical.histFamilyCancer %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Cancer</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyCancer}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyDiabetes %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Diabetes</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyDiabetes}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyRheumatoidArthritis %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Rheumatoid Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyRheumatoidArthritis}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyArthritis %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Arthritis</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyArthritis}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyGout %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Gout</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyGout}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyBleeding %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Bleeding</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyBleeding}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilySickleCellAnemia %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Sickle Cell Anemia</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilySickleCellAnemia}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        {% if medical.histFamilyHeartDisease %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Heart Disease</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyHeartDisease}}</p>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <th>
+                <p align="left">&nbsp; Other</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histFamilyOther}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Social</th>
+        </tr>
+        <tr>
+            <th>
+                <p align="left">&nbsp; Relationship</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histRelationship}}</p>
+            </td>
+        </tr><tr>
+            <th>
+                <p align="left">&nbsp; Work</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWork}}</p>
+            </td>
+        </tr><tr>
+            <th>
+                <p align="left">&nbsp; Work Details</p>
+            </th>
+            <td>
+                <p align="left">&nbsp; {{medical.histWorkExplain}}</p>
+            </td>
+        </tr>
+    </table>
+    {% endif %}
+{% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="profile"]').addClass("active");
+
+        // Mark things labeled "true"
+        $('td:contains("True")').addClass("alert alert-warning").css("font-weight", "Bold")
+    });
+</script> 
+{% endblock scripts %}

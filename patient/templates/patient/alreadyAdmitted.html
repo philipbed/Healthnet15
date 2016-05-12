@@ -1,0 +1,9 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+<title> HealthNet - Error with transfer </title>
+<h3 class='helpText'> This patient has already been admitted to {{ hospital }}. </h3>
+
+<h4 class='helpText'><a class='helpText center-container' href="{% url 'patient:patientDetails' patID %}">&#9664; Click here to return to the this patient's page.</a></h4>
+
+{% endblock %}

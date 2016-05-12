@@ -1,0 +1,175 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+
+{% block content %}
+<title> HealthNet - View patient details</title>
+
+<table class="table table-hover" style="width:24%" align="left">
+    <tr class='table-heading' colspan="2">
+        <th style="width:60%">Patients</th>
+        <th>Actions</th>
+    </tr>
+
+    <!--Listed patients are restricted in views.py-->
+    {% for pat in patients %}
+    <tr>
+        <td>{{pat}}</td>
+        <td><a class='neutral' href="{% url 'patient:patientDetails' pat.id%}"> View Details</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<div align="right">
+    <table class='table table-hover' style="width:75%" align="top">
+        <tr>
+            <th class='table-heading' colspan="2">User information</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td> {{fullName}}</td>
+        </tr>
+        <tr>
+            <th>Email address</th>
+            <td> {{email}}</td>
+        </tr>
+        <tr>
+            <th>Phone number</th>
+            <td> {{phoneNumber}}</td>
+        </tr>
+        <tr>
+            <th>Birthday</th>
+            <td> {{birthday}}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td> {{addressInfo}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Hospital</th>
+        </tr>
+        <tr>
+            <th>Current hospital</th>
+            <td> {{patient_model.hospitalID|default_if_none:'No hospital information on file'}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Insurance information</th>
+        </tr>
+        <tr>
+            <th>Insurance name</th>
+            <td> {{insuranceName}}</td>
+        </tr>
+        <tr>
+            <th>Policy number</th>
+            <td> {{policyNumber}}</td>
+        </tr>
+        <tr>
+            <th class='table-heading' colspan="2">Emergency Contact information</th>
+        </tr>
+        <tr>
+            <th>Contact name</th>
+            <td> {{emergencyContact.firstName}} {{emergencyContact.lastName}}</td>
+        </tr>
+        <tr>
+
+            <th>Phone number</th>
+            <td> {{emergencyContact.emergencyNumber}}</td>
+        </tr>
+
+    </table>
+
+    <table class='table table-hover' style="width:75%" align='bottom'>
+        <tr>
+            <th class='table-heading' colspan="4">Prescriptions</th>
+        </tr>
+        {% if prescriptions %}
+        <tr>
+            <th>Medication</th>
+            <th>Dosage</th>
+            <th>Refills</th>
+            <th>Prescribed by</th>
+        </tr>
+
+        {% for p in prescriptions %}
+        <tr>
+            <td>{{ p.medication.name }}</td>
+            <td>{{ p.amount }}</td>
+            <td>{{ p.refill }}</td>
+            <td>{{ p.doctorID }}</td>
+        </tr>
+        {% endfor %}
+
+        {% else %}
+        <tr>
+            <td> No prescriptions to show</td>
+        </tr>
+
+        {% endif %}
+
+    </table>
+
+    <table class='table table-hover' style="width:75%" align="bottom">
+        <tr>
+            <th class='table-heading' colspan="4">Actions</th>
+        </tr>
+        <tr>
+            <th>Schedule appointment</th>
+            <td>
+                {% if request|isDoctor %}
+                <a class='confirm' href="{% url 'appointment:scheduleDoctor' patient_model.id %}"> Create</a>
+                {% elif request|isNurse %}
+                <a class='confirm' href="{% url 'appointment:scheduleNurse' patient_model.id %}"> Create</a>
+                {% endif %}
+            </td>
+            <th>Medical Information</th>
+            <td>
+                {% if patient_model.medicalID != None %}
+                <a class='confirm' href="{% url 'medical:history' patient_model.medicalID.id%}"> View</a>
+                {% else %}
+                <a class='delete'> NEEDED</a>
+                {% endif %}
+            </td>
+        </tr>
+        {%if not request|isRoot%}
+        <tr>
+            <th>Transfer</th>
+            <td>
+                {% if patient_model.hospitalID == None %}
+                {% if request|isDoctor or request|isNurse %}
+                <a class='delete' href="{% url 'patient:cannotTransfer' patient_model.id%}"> Transfer</a>
+                {% endif %}
+                {% else %}
+                {% if request|isDoctor or request|isNurse %}
+                <a class='confirm' href="{% url 'patient:transferPatient' patient_model.id%}"> Transfer</a>
+                {% endif %}
+                {% endif %}
+            </td>
+            <th>Messages</th>
+            <td><a class='confirm' href="{% url 'messages:send' patientID %}"> Send a Message</a></td>
+        </tr>
+
+        <tr>
+            <th>Prescription</th>
+            <td>
+                {% if request|isDoctor or request|isNurse %}
+                <a class='confirm' href="{% url 'prescription:create' patient_model.id %}"> Add a prescription</a>
+                {% endif %}
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        {%endif%}
+    </table>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="patients"]').addClass("active");
+        });
+
+</script>
+
+{% endblock scripts %}

@@ -1,0 +1,35 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+<title> HealthNet - Write prescription </title>
+
+{% if prescriptionSuccess %}
+<h3 class='helpText'> Success! The prescription was created.</h3>
+<h4 class='helpText'><a href="{% url 'prescription:view' %}">&#9664; Return to your prescription list. </a></h4>
+{% else %}
+
+<h1> {{ user.first_name }}, write prescription here: </h1>
+ 
+<div id="form-container">
+	<form id="prescriptionForm" class='form-center' method="post" action="{% url 'prescription:create' %}">
+	    {% csrf_token %}
+	    {{ prescriptionForm.as_p }}
+	    {{ medicationForm.as_p }}
+	    <input type="submit" class='confirm right' value='Send'/>
+	    <a class='neutral' href="{% url 'profile:userLogin' %}">Cancel</a>
+	</form>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Add the active class
+		$('li[data-item="prescription"]').addClass("active");
+	});
+</script>
+{% endblock scripts %}

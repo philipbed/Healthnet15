@@ -1,0 +1,15 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+    <!-- Set the title of the page to be what is on the page --> 
+    <title>HealthNet - Delete Appointment</title>
+
+    <form id="DischargePatient" method="post" action="{% url 'patient:discharge' stayID %}">
+        {% csrf_token %}
+        <h3>{{ user.first_name }}, are you sure you want to discharge your {{currPatient}} from {{ hospital }}:
+            </h3> {{ form.as_p }}
+            <input class='delete' type="submit" name='submit' value="Yes"/>
+        </form>
+        <h3><a href="{% url 'patient:admittedPats' %}">No</a></h3>
+
+{% endblock content %}

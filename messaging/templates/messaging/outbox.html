@@ -1,0 +1,72 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<link type="text/css" href="{% static 'css/messages.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<h1 class='margin-bottom'>Outbox</h1>
+
+{% if message_list %}
+<table class="messages table table-striped">
+    <thead>
+    <tr>
+        <th>Recipient</th>
+        <th>Subject</th>
+        <th>Sent</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for message in message_list %}
+    <tr>
+        <td>{{ message.recipient }}</td>
+        <td>
+            <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
+        </td>
+        <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
+        <td>
+            <a data-toggle="modal" data-target="#{{message.id}}" class='delete'>&#10006; Delete</a>
+        </td>
+    </tr>
+
+    <div id="{{message.id}}" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title helpText">Are you sure you want to delete?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This message to {{message.recipient}} cannot be recovered.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default neutral" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-default delete"
+                       href="{% url 'messages:delete' message.id %}?next={% url 'messages:outbox' %}">Yes, delete it</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h3 class='helpText'>No messages.</h3>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="messages"]').addClass("active");
+    });
+
+</script>
+{% endblock %}
+

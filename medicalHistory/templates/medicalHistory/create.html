@@ -1,0 +1,416 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% block style %}
+{% endblock style %}
+{% block content %}
+
+<title>HealthNet - Create Medical History </title>
+
+<h2 class='helpText'>Please fill in your medical history:</h2>
+
+<div id='form-container'>
+<form id="medicalForm" method="post" action="{% url 'medical:create' %}">
+
+    {% csrf_token %}
+    <div>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>General:</td>
+            </tr>
+            <tr>
+                <td>{{ medicalForm.histWeight.errors }}</td>
+                <th><label for="id_histWeight">Weight:</label></th>
+                <td><input id="id_histWeight" name="histWeight" type="number"/><br><span
+                        class="helptext">lbs</span></td>
+                <td>{{ medicalForm.histHeight.errors }}</td>
+                <th><label for="id_histHeight">Height:</label></th>
+                <td><input id="id_histHeight" name="histHeight" type="number"/><br/><span
+                        class="helptext">Inches</span></td>
+                <td>{{ medicalForm.histAge.errors }}</td>
+                <th><label for="id_histAge">Age:</label></th>
+                <td><input id="id_histAge" name="histAge" type="number"/><br><span 
+                        class="helptext">years</span></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Review of Systems:</td>
+            </tr>
+            <tr>
+                {{ medicalForm.histCancer.errors }}
+                <th><label for="id_histCancer">Cancer:</label></th>
+                <td><input id="id_histCancer" name="histCancer" type="checkbox"/></td>
+                {{ medicalForm.histAlcoholism.errors }}
+                <th><label for="id_histAlcoholism">Alcoholism:</label></th>
+                <td><input id="id_histAlcoholism" name="histAlcoholism" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histUlcers.errors }}
+                <th><label for="id_histUlcers">Ulcers:</label></th>
+                <td><input id="id_histUlcers" name="histUlcers" type="checkbox"/></td>
+                {{ medicalForm.histCholesterol.errors }}
+                <th><label for="id_histCholesterol">Cholesterol:</label></th>
+                <td><input id="id_histCholesterol" name="histCholesterol" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histAsthma.errors }}
+                <th><label for="id_histAsthma">Asthma:</label></th>
+                <td><input id="id_histAsthma" name="histAsthma" type="checkbox"/></td>
+                {{ medicalForm.histHeartTrouble.errors }}
+                <th><label for="id_histHeartTrouble">Heart Trouble:</label></th>
+                <td><input id="id_histHeartTrouble" name="histHeartTrouble" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histKidneyDisease.errors }}
+                <th><label for="id_histKidneyDisease">Kidney Disease:</label></th>
+                <td><input id="id_histKidneyDisease" name="histKidneyDisease" type="checkbox"/></td>
+                {{ medicalForm.histSickleCellAnemia.errors }}
+                <th><label for="id_histSickleCellAnemia">Sickle Cell Anemia:</label></th>
+                <td><input id="id_histSickleCellAnemia" name="histSickleCellAnemia" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histTuberculosis.errors }}
+                <th><label for="id_histTuberculosis">Tuberculosis:</label></th>
+                <td><input id="id_histTuberculosis" name="histTuberculosis" type="checkbox"/></td>
+                {{ medicalForm.histHiv.errors }}
+                <th><label for="id_histHiv">HIV/AIDS:</label></th>
+                <td><input id="id_histHiv" name="histHiv" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histEmphysema.errors }}
+                <th><label for="id_histEmphysema">Emphysema:</label></th>
+                <td><input id="id_histEmphysema" name="histEmphysema" type="checkbox"/></td>
+                {{ medicalForm.histHighBloodPressure.errors }}
+                <th><label for="id_histHighBloodPressure">High Blood Pressure:</label></th>
+                <td><input id="id_histHighBloodPressure" name="histHighBloodPressure" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histBleedingDisorder.errors }}
+                <th><label for="id_histBleedingDisorder">Bleeding Disorder:</label></th>
+                <td><input id="id_histBleedingDisorder" name="histBleedingDisorder" type="checkbox"/></td>
+                {{ medicalForm.histLiverDisorder.errors }}
+                <th><label for="id_histLiverDisorder">Liver Disorder:</label></th>
+                <td><input id="id_histLiverDisorder" name="histLiverDisorder" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histBirthDefects.errors }}
+                <th><label for="id_histBirthDefects">Birth Defects:</label></th>
+                <td><input id="id_histBirthDefects" name="histBirthDefects" type="checkbox"/></td>
+                {{ medicalForm.histStroke.errors }}
+                <th><label for="id_histStroke">Stroke:</label></th>
+                <td><input id="id_histStroke" name="histStroke" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histArthritis.errors }}
+                <th><label for="id_histArthritis">Arthritis:</label></th>
+                <td><input id="id_histArthritis" name="histArthritis" type="checkbox"/></td>
+                {{ medicalForm.histDiabetes.errors }}
+                <th><label for="id_histDiabetes">Diabetes:</label></th>
+                <td><input id="id_histDiabetes" name="histDiabetes" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histHeartAttack.errors }}
+                <th><label for="id_histHeartAttack">Heart Attack:</label></th>
+                <td><input id="id_histHeartAttack" name="histHeartAttack" type="checkbox"/></td>
+                {{ medicalForm.histGout.errors }}
+                <th><label for="id_histGout">Gout:</label></th>
+                <td><input id="id_histGout" name="histGout" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histSystems.errors }}
+                <th><label for="id_histSystems">Please Explain:</label></th>
+                <td><input id="id_histSystems" name="histSystems" type="text"/></td>
+                {{ medicalForm.histSystemsOther.errors }}
+                <th><label for="id_histSystemsOther">Other:</label></th>
+                <td><input id="id_histSystemsOther" name="histSystemsOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Surgery/Fractures:</td>
+            </tr>
+            <tr>
+                {{ medicalForm.histSurgeryTonsils.errors }}
+                <th><label for="id_histSurgeryTonsils">Tonsils:</label></th>
+                <td><input id="id_histSurgeryTonsils" name="histSurgeryTonsils" type="checkbox"/></td>
+                {{ medicalForm.histSurgeryBreast.errors }}
+                <th><label for="id_histSurgeryBreast">Breast:</label></th>
+                <td><input id="id_histSurgeryBreast" name="histSurgeryBreast" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histSurgeryAppendix.errors }}
+                <th><label for="id_histSurgeryAppendix">Appendix:</label></th>
+                <td><input id="id_histSurgeryAppendix" name="histSurgeryAppendix" type="checkbox"/></td>
+                {{ medicalForm.histSurgeryUterus.errors }}
+                <th><label for="id_histSurgeryUterus">Uterus:</label></th>
+                <td><input id="id_histSurgeryUterus" name="histSurgeryUterus" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histSurgeryGallBladder.errors }}
+                <th><label for="id_histSurgeryGallBladder">Gall Bladder:</label></th>
+                <td><input id="id_histSurgeryGallBladder" name="histSurgeryGallBladder" type="checkbox"/></td>
+                {{ medicalForm.histSurgeryOvaries.errors }}
+                <th><label for="id_histSurgeryOvaries">Ovaries:</label></th>
+                <td><input id="id_histSurgeryOvaries" name="histSurgeryOvaries" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histSurgeryStomach.errors }}
+                <th><label for="id_histSurgeryStomach">Stomach:</label></th>
+                <td><input id="id_histSurgeryStomach" name="histSurgeryStomach" type="checkbox"/></td>
+                {{ medicalForm.histSurgerySmallIntestine.errors }}
+                <th><label for="id_histSurgerySmallIntestine">Small Intestine:</label></th>
+                <td><input id="id_histSurgerySmallIntestine" name="histSurgerySmallIntestine" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histSurgeryProstate">Prostate:</label></th>
+                <td><input id="id_histSurgeryProstate" name="histSurgeryProstate" type="checkbox"/></td>
+                <th><label for="id_histSurgeryColon">Colon:</label></th>
+                <td><input id="id_histSurgeryColon" name="histSurgeryColon" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histSurgeryThyroid">Thyroid:</label></th>
+                <td><input id="id_histSurgeryThyroid" name="histSurgeryThyroid" type="checkbox"/></td>
+                <th><label for="id_histSurgeryKidney">Kidney:</label></th>
+                <td><input id="id_histSurgeryKidney" name="histSurgeryKidney" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histSurgeryHernia">Hernia:</label></th>
+                <td><input id="id_histSurgeryHernia" name="histSurgeryHernia" type="checkbox"/></td>
+                <th><label for="id_histSurgeryHeart">Heart:</label></th>
+                <td><input id="id_histSurgeryHeart" name="histSurgeryHeart" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histSurgeryPacemaker">Pacemaker:</label></th>
+                <td><input id="id_histSurgeryPacemaker" name="histSurgeryPacemaker" type="checkbox"/></td>
+                <th><label for="id_histSurgeryJointReplace">Joint Replacement:</label></th>
+                <td><input id="id_histSurgeryJointReplace" name="histSurgeryJointReplace" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histSurgeryExtremities">Extremities:</label></th>
+                <td><input id="id_histSurgeryExtremities" name="histSurgeryExtremities" type="checkbox"/></td>
+                {{ medicalForm.histSurgeryOther.errors }}
+                <th><label for="id_histSurgeryOther">Any other surgeries (What kind):</label></th>
+                <td><input id="id_histSurgeryOther" name="histSurgeryOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Allergies:</td>
+            </tr>
+            <tr>
+                <th><label for="id_histAllergyPenicillin">Penicillin:</label></th>
+                <td><input id="id_histAllergyPenicillin" name="histAllergyPenicillin" type="checkbox"/></td>
+                <th><label for="id_histAllergySulfa">Sulfa:</label></th>
+                <td><input id="id_histAllergySulfa" name="histAllergySulfa" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histAllergyMetal">Metal:</label></th>
+                <td><input id="id_histAllergyMetal" name="histAllergyMetal" type="checkbox"/></td>
+                <th><label for="id_histAllergyNone">None:</label></th>
+                <td><input id="id_histAllergyNone" name="histAllergyNone" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histAllergyOther.errors }}
+                <th><label for="id_histAllergyOther">Other:</label></th>
+                <td><input id="id_histAllergyOther" name="histAllergyOther" type="text"/></td>
+                {{ medicalForm.histAllergyFoodOther.errors }}
+                <th><label for="id_histAllergyFoodOther">Other Food Allergies:</label></th>
+                <td><input id="id_histAllergyFoodOther" name="histAllergyFoodOther" type="text"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histMedicationOther.errors }}
+                <th><label for="id_histMedicationOther">Other Medication Allergies:</label></th>
+                <td><input id="id_histMedicationOther" name="histMedicationOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Conditions:</td>
+            </tr>
+            <tr>
+                <th><label for="id_histConditionShortBreath">Short Breath:</label></th>
+                <td><input id="id_histConditionShortBreath" name="histConditionShortBreath" type="checkbox"/></td>
+                <th><label for="id_histConditionChestPain">Chest Pain:</label></th>
+                <td><input id="id_histConditionChestPain" name="histConditionChestPain" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histConditionWeightLoss">Weight Loss:</label></th>
+                <td><input id="id_histConditionWeightLoss" name="histConditionWeightLoss" type="checkbox"/></td>
+                <th><label for="id_histConditionConstipation">Constipation:</label></th>
+                <td><input id="id_histConditionConstipation" name="histConditionConstipation" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histConditionFever">Fever:</label></th>
+                <td><input id="id_histConditionFever" name="histConditionFever" type="checkbox"/></td>
+                <th><label for="id_histConditionVision">Vision:</label></th>
+                <td><input id="id_histConditionVision" name="histConditionVision" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histConditionHeadache">Headache:</label></th>
+                <td><input id="id_histConditionHeadache" name="histConditionHeadache" type="checkbox"/></td>
+                <th><label for="id_histConditionUrination">Urination:</label></th>
+                <td><input id="id_histConditionUrination" name="histConditionUrination" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histConditionNumbness">Numbness:</label></th>
+                <td><input id="id_histConditionNumbness" name="histConditionNumbness" type="checkbox"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Tobacco Use:</td>
+            </tr>
+            <tr>
+                <th><label for="id_histTobaccoCigarettes">Cigarettes:</label></th>
+                <td><input id="id_histTobaccoCigarettes" name="histTobaccoCigarettes" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histTobaccoFrequency.errors }}
+                <th><label for="id_histTobaccoFrequency">Frequencies:</label></th>
+                <td><input id="id_histTobaccoFrequency" name="histTobaccoFrequency" type="number" value="0"/><br/><span
+                        class="helptext">Amount/Day</span></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histTobaccoDuration.errors }}
+                <th><label for="id_histTobaccoDuration">Duration:</label></th>
+                <td><input id="id_histTobaccoDuration" name="histTobaccoDuration" type="number" value="0"/><br/><span
+                        class="helptext">Time since starting</span></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histTobaccoOther.errors }}
+                <th><label for="id_histTobaccoOther">Other Tobacco Use:</label></th>
+                <td><input id="id_histTobaccoOther" name="histTobaccoOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Alcohol Use:</td>
+            </tr>
+            <tr>
+                {{ medicalForm.histAlcoholBeer.errors }}
+                <th><label for="id_histAlcoholBeer">Beer/Wine:</label></th>
+                <td><input id="id_histAlcoholBeer" name="histAlcoholBeer" type="number" value="0"/><br/><span
+                        class="helptext">x a week</span>
+                </td>
+            </tr>
+            <tr>
+                {{ medicalForm.histAlcoholShots.errors }}
+                <th><label for="id_histAlcoholShots">Shots/Liquor:</label></th>
+                <td><input id="id_histAlcoholShots" name="histAlcoholShots" type="number" value="0"/><br/><span
+                        class="helptext">x a week</span></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histDrugOther.errors }}
+                <th><label for="id_histDrugOther">Other Drug use:</label></th>
+                <td><input id="id_histDrugOther" name="histDrugOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Family History:</td>
+            </tr>
+            <tr>
+                <th><label for="id_histFamilyCancer">Cancer:</label></th>
+                <td><input id="id_histFamilyCancer" name="histFamilyCancer" type="checkbox"/></td>
+                <th><label for="id_histFamilyDiabetes">Diabetes:</label></th>
+                <td><input id="id_histFamilyDiabetes" name="histFamilyDiabetes" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histFamilyRheumatoidArthritis">Rheumatoid Arthritis:</label></th>
+                <td><input id="id_histFamilyRheumatoidArthritis" name="histFamilyRheumatoidArthritis" type="checkbox"/>
+                </td>
+                <th><label for="id_histFamilyArthritis">Arthritis:</label></th>
+                <td><input id="id_histFamilyArthritis" name="histFamilyArthritis" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histFamilyGout">Gout:</label></th>
+                <td><input id="id_histFamilyGout" name="histFamilyGout" type="checkbox"/></td>
+                <th><label for="id_histFamilyBleeding">Bleeding:</label></th>
+                <td><input id="id_histFamilyBleeding" name="histFamilyBleeding" type="checkbox"/></td>
+            </tr>
+            <tr>
+                <th><label for="id_histFamilySickleCellAnemia">Sickle Cell Anemia:</label></th>
+                <td><input id="id_histFamilySickleCellAnemia" name="histFamilySickleCellAnemia" type="checkbox"/></td>
+                <th><label for="id_histFamilyHeartDisease">Heart Disease:</label></th>
+                <td><input id="id_histFamilyHeartDisease" name="histFamilyHeartDisease" type="checkbox"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histFamilyOther.errors }}
+                <th><label for="id_histFamilyOther">Other:</label></th>
+                <td><input id="id_histFamilyOther" name="histFamilyOther" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Social History:</td>
+            </tr>
+            <tr>
+                {{ medicalForm.histRelationship.errors }}
+                <th><label for="id_histRelationship">Relationship:</label></th>
+                <td><select id="id_histRelationship" name="histRelationship">
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histWork.errors }}
+                <th><label for="id_histWork">Work Status:</label></th>
+                <td><select id="id_histWork" name="histWork">
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Disabled">Disabled</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Student">Student</option>
+                </select></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histWorkExplain.errors }}
+                <th><label for="id_histWorkExplain">Employed - Doing what:</label></th>
+                <td><input id="id_histWorkExplain" name="histWorkExplain" type="text"/></td>
+            </tr>
+        </table>
+        <br>
+        <table id="customTable" style="width:80%" align="center">
+            <tr>
+                <td>Primary Care Provider Information:</td>
+            </tr>
+            <tr>
+                {{ medicalForm.histPrimaryName.errors }}
+                <th><label for="id_histPrimaryName">Primary care provider:</label></th>
+                <td><input id="id_histPrimaryName" name="histPrimaryName" type="text"/></td>
+            </tr>
+            <tr>
+                {{ medicalForm.histPrimaryNumber.errors }}
+                <th><label for="id_histPrimaryNumber">Physician Number:</label></th>
+                <td><input id="id_histPrimaryNumber" name="histPrimaryNumber" type="number"/></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- Provide a button to click to submit the form. -->
+    <input class='confirm right' type="submit" name="submit" value="Confirm"/>
+    <a class='neutral' href="{% url 'profile:viewProfile' %}">Cancel</a>
+</form>
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Add the active class
+        $('li[data-item="profile"]').addClass("active");
+    });
+</script> 
+{% endblock scripts %}

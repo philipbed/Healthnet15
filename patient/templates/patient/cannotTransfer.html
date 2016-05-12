@@ -1,0 +1,9 @@
+{% extends "base/navbar.html" %}
+
+
+{% block content %}
+<title>Transfer Failed</title>
+<h3>Cannot perform a transfer with {{patient}} because they have not been admitted to a hospital yet.</h3>
+
+<p>Return to<a href="{% url 'patient:patientDetails' patient.id%}"> patient details.</a></p>
+{% endblock %}
