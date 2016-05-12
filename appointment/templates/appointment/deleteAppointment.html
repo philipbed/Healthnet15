@@ -1,0 +1,26 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+    <!-- Set the title of the page to be what is on the page --> 
+    <title>HealthNet - Delete Appointment</title>
+
+    <div id='form-container'>
+        <form id="DeleteAppointment" method="post" action="{% url 'appointment:delete' appointmentID %}">
+            {% csrf_token %}
+            <h3>{{ user.first_name }}, are you sure you want to delete your appointment at:
+                {{ appointment.aptTime }} at {{ appointment.aptDate }}</h3> {{ form.as_p }}
+                <input class='delete' type="submit" name='submit' value="Delete this appointment"/>
+                <a class='btn neutral longButton' href="{% url 'appointment:view' %}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Add the active class
+		$('li[data-item="appointments"]').addClass("active");
+	});
+</script> 
+{% endblock scripts %}

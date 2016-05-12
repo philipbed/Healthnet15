@@ -1,0 +1,223 @@
+{% load staticfiles %}
+{% load app_filters %}
+
+<DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- Universal styling -->
+        <link type='text/css' href="{% static 'css/bootstrap.css' %}" rel='stylesheet'>
+        <link type='text/css' href="{% static 'css/navbar.css' %}" rel='stylesheet'>
+        <link type='text/css' href="{% static 'css/utilities.css' %}" rel='stylesheet'>
+
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+        <!-- Begin block for page specific CSS -->
+        {% block style %}
+        {% endblock %}
+    </head>
+    <body>
+
+    <!-- Checks to see if the user is logged in -->
+    {% if user.is_authenticated %}
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" data-item="home" href="{% url 'profile:userLogin' %} ">HealthNet</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <!-- <li data-item="home"><a href="{% url 'profile:userLogin' %}">Home</a></li> -->
+                    {% if not request|isRoot or request|isAdmin %}
+                    <li class="dropdown" data-item='appointments'>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Appointments
+                            <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'appointment:view' %}">View your appointments</a></li>
+                            {% if request|isPatient %}
+                            <li><a href="{% url 'appointment:schedule' %}"> &#x270e; Create an appointment</a>
+                                {% elif request|isDoctor %}
+                            <li><a href="{% url 'appointment:scheduleDoctor' %}"> &#x270e; Create an appointment</a>
+                            </li>
+                            {% elif request|isNurse %}
+                            <li><a href="{% url 'appointment:scheduleNurse' %}">&#x270e; Create an appointment</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-item='messages'>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Messaging
+                            <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'messages:inbox' %}">View your messages</a></li>
+                            <li><a href="{% url 'messages:send' %}"> &#x270e; Send a message</a></li>
+                            <li><a href="{% url 'messages:outbox' %}">View your sent messages</a></li>
+                        </ul>
+                    </li>
+
+                    {% endif %}
+
+                    {% if request|isPatient %}
+                    <li data-item="prescription"><a href="{% url 'prescription:view' %}">Prescriptions</a></li>
+
+                    {% elif request|isDoctor %}
+                    <li class="dropdown" data-item='patients'>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Patients
+                            <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'patient:patientList' %}">View patient list</a></li>
+                            <li><a href="{% url 'patient:admittedPats' %}">View admitted patients</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" data-item='prescription'>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Prescriptions
+                            <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'prescription:view' %}">View past prescriptions</a></li>
+                            <li><a href="{% url 'prescription:create' %}">Write a prescription</a></li>
+                        </ul>
+                    </li>
+
+                    {% elif request|isNurse %}
+                    <li class="dropdown" data-item='patients'>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Patients
+                            <span class="caret"></span></a>
+
+                        <ul class="dropdown-menu">
+                            <li data-item="patients"><a href="{% url 'patient:patientList' %}">View your patients</a>
+                            </li>
+                            <li><a href="{% url 'patient:admittedPats' %}">View admitted patients</a></li>
+                        </ul>
+                    </li>
+                    <li data-item="prescription"><a href="{% url 'prescription:view' %}">Prescriptions</a></li>
+                    {% endif %}
+
+                    {% if request|isAdmin or request|isRoot %}
+                    <li data-item='hospital' class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> Hospitals <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">Staff</li>
+                            <li><a href="{% url 'profile:viewAllPersonnel' %}">View Personnel</a></li>
+                            <li><a href="{% url 'register:createDoctor' %}"> Create Doctor </a></li>
+                            <li><a href="{% url 'register:createNurse'%}"> Create Nurse</a></li>
+                            <li><a href="{% url 'register:createAdmin' %}"> Create Admin</a></li>
+                            <li class="dropdown-header">Patients</li>
+                            <li><a href="{% url 'patient:patientList' %}">View Patients</a></li>
+                            {% if request|isRoot %}
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Root actions</li>
+                            <li><a href="{% url 'hospital:view' %}">Hospitals</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li data-item='log' class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"> System <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'systemLog:log' %}">Log</a></li>
+                            <li><a href="{% url 'systemLog:stats' %}">Statistics</a></li>
+                        </ul>
+                    </li>
+                    {% if request|isRoot %}
+                    <li data-item="admin"><a href="{% url 'admin:index' %}">Admin Interface</a></li>
+                    {% endif %}
+                    {% endif %}
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-item="profile" class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
+                            {{user.first_name}}
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'profile:viewProfile' %}">View profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">User actions</li>
+                            <li><a href="{% url 'profile:userLogout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Feature custom content for whatever page you're on -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- If the user is not logged in -->
+    {% else %}
+
+    <!-- Create a blank Navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" id='login-nav'>
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'base:landing' %}">HealthNet</a>
+            </div>
+            <!-- <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li data-item="home"><a href="{% url 'base:landing' %}">Return to homepage</a></li>
+                </ul>
+            </div> -->
+        </div>
+    </nav>
+
+    <!-- If the user is trying to login -->
+    {% if loginAttempt %}
+    {% block loginForm %}
+    {% endblock loginForm %}
+
+    <!-- If the user is trying to register -->
+    {% elif registerAttempt %}
+    {% block register %}
+    {% endblock register %}
+    <!-- If the user is trying to logout -->
+    {% elif logoutAttempt %}
+    {% block logout %}
+    {% endblock logout %}
+    {% endif %}
+
+    {% endif %}
+
+    <!-- Load the scripts at the end of the file to increase performance -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Block for loading custom scripts, including calendar -->
+    {% block scripts %}
+    {% endblock scripts %}
+
+    </body>
+    </html>
+</DOCTYPE>

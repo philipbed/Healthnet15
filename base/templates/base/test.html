@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            HealthNet - Appointments
+        </title>
+
+        <!-- Universal styling -->
+        <link type='text/css' href="{% static 'css/bootstrap.css' %}" rel='stylesheet'>
+        <link type='text/css' href="{% static 'css/navbar.css' %}" rel='stylesheet'>
+        <link type='text/css' href="{% static 'css/utilities.css' %}" rel='stylesheet'>
+
+        <!-- Page specific styling -->
+        <link type='text/css' href="{% static 'css/fullcalendar.css' %}" rel='stylesheet'/>
+        <link type='text/css' href="{% static 'css/appointment.css' %}" rel='stylesheet'/>
+
+        <!-- Font styling -->
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    </head>
+
+
+    <body>
+
+            <div id="appointmentCalendar"></div>
+
+
+    <!-- Load the scripts at the end of the file to increase performance -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/fullcalendar.min.js' %}"></script>
+    <script type="text/javascript">
+            $(document).ready(function() {
+
+                // page is now ready, initialize the calendar...
+
+                $('#appointmentCalendar').fullCalendar({
+                    // put your options and callbacks here
+                    //height: 450
+                    events:
+                            {{ cal }}
+
+                })
+
+            });
+
+
+    </script>
+    </body>
+    </html>
+</DOCTYPE>

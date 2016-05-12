@@ -1,0 +1,26 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+    <!-- Set the title of the page to be what is on the page -->
+    <title>HealthNet - Delete Hospital</title>
+
+    <div id="form-container">
+    <form id="DeleteHospital" class='form-center' method="post" action="{% url 'hospital:delete' hospitalID %}">
+        {% csrf_token %}
+        <h3>{{ user.first_name }}, are you sure you want to remove:</h3>
+            {{ form.as_p }}
+            <a class='neutral' href="{% url 'hospital:view' %}">Cancel</a>
+            <input class='delete' type="submit" name='submit' value="Delete this Hospital"/>
+        </form>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Add the active class
+		$('li[data-item="hospital"]').addClass("active");
+	});
+</script>
+{% endblock scripts %}

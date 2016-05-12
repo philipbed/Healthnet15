@@ -1,0 +1,49 @@
+{% extends "base/navbar.html" %}
+
+{% block style %}
+{% endblock style %}
+
+{% block content %}
+
+    <title>HealthNet - Hospitals</title>
+
+    <div class='center-container'>
+        <a class='confirm' href="{% url 'hospital:create' %}"> &#x270e; Create Hospital</a>
+    </div>
+
+    <br>
+
+    <div id='containerBlock'>
+        <table class='table table-striped' align="right">
+                <col width="30%">
+                <col width="50%">
+                <col width="20%">
+                <th>Hospital:</th>
+                <th>Address:</th>
+                <th>Actions</th>
+                
+                {% for hos in all_hospitals %}
+                <tr>
+                    <td> {{ hos.name}}</td>
+                    <td> {{ hos.address }}</td>
+                    <td>
+                        <a class='confirm' href="{% url 'hospital:update' hos.id%}"> &#x270e; Edit</a>
+                        <a class='delete' href="{% url 'hospital:delete' hos.id%}"> &#x270e; Delete</a>
+                     </td>
+                </tr>
+                {% endfor %}
+            </table>
+    </div>
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <link type='text/css' href="{% static 'css/bootstrap-datetimepicker.min.css' %}" rel='stylesheet'>
+{% endblock style %}
+
+{% block content %}
+    <title>HealthNet - Edit Appointment</title>
+    {% if user.is_authenticated %}
+        <!-- <h3>Current appointment being edited: {{ appointment.aptDate }} {{ appointment.aptTime }}</h3> -->
+        
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        <h3 class='helpText'> Please note: all appointments must be scheduled 30 minutes apart from one another </h3>
+        <div id='form-container'>
+        <form id="updateForm" action="{% url 'appointment:update' appointmentID%}" method="post">
+            {% csrf_token %}
+
+            <!-- The doctor field for the appointment -->
+            <div class="fieldWrapper">
+                {{ form.doctorID.errors }}
+                <label for="{{ form.aptDate.id_for_label }}">Doctor:</label>
+                {{ form.docList }}
+            </div>
+            <br>
+
+            <!-- The date field for the appointment -->
+            {{ form.aptDate.errors }}
+
+            <label for="id_date_field" style="float:left;margin-top:5px;">Date [MM/DD/YYYY]:</label>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        <div class='col-sm-6' style="width:20%">
+                            <div id="datepicker" class="input-group date" >
+                                <input id="id_date_field" class="form-control" name="date_field" type="text" value="{{ date }}" />
+                                <span class="input-group-addon" >
+                                    <span class="glyphicon glyphicon-calendar" ></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- The time field for the appointment -->
+            {{ form.aptTime.errors }}
+            <label for="id_time" style="float:left;margin-top:5px;">Time [HH:MM]:</label>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        <div class='col-sm-6' style="width:20%">
+                            <div id="timepicker" class="input-group date" >
+                                <input id="id_time" name="time" class="form-control" type="text" value="{{ time }}"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- The reason field -->
+            <label for="id_reason" style="float:left;margin-top:5px;">Reason for appointment</label>
+            {{ appointmentForm.reason.errors }}
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        <div class='col-sm-6'>
+                            <input id="id_reason" name="reason" class="form-control" type="text">{{ reason }}</input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input class='confirm' type="submit" name="Submit" value="Save"/>
+            <a class='delete' href="{% url 'appointment:view' %}">Cancel</a>
+        </form>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+
+
+{% block scripts %}
+    <script src="{%static 'js/jquery.min.js' %}"></script>
+    <script src="{%static 'js/moment.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap-datetimepicker.js'%}"></script>
+    <script type="text/javascript">
+        $('#datepicker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: true
+        });
+    </script>
+    <script type="text/javascript">
+        $('#timepicker').datetimepicker({
+            stepping: 30,
+            viewDate: false,
+            format: 'LT',
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="appointments"]').addClass("active");
+        });
+    </script> 
+{% endblock scripts %}

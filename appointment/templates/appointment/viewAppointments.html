@@ -1,0 +1,253 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+
+{% block style %}
+<!-- Page specific styling -->
+<link type='text/css' href="{% static 'css/fullcalendar.css' %}" rel='stylesheet'/>
+<link type='text/css' href="{% static 'css/appointment.css' %}" rel='stylesheet'/>
+{% endblock style %}
+
+{% block content %}
+<title>HealthNet - Appointments</title>
+
+{% if request|isDoctor %}
+    <h1>{{ user.first_name }}, here is your list of appointments:</h1>
+{% elif request|isPatient %}
+    <h1> Hello {{user.first_name}}! Here are your appointments: </h1>
+{% elif request|isAdmin or request|isNurse %}
+    <h1>Appointments for {{employeeModel.hospitalID.name}}:</h1>
+{% else %}
+{% endif %}
+
+
+<!-- Show the calendar -->
+<div id='calendarContainer'>
+    <div id="appointmentCalendar"></div>
+</div>
+
+
+<!-- If an admin or a nurse is viewing the page -->
+{% if request|isNurse or request|isAdmin %}
+<div class="centerBox">
+    <table id="patientTable" class='table table-striped'>
+        <th>Doctor:</th>
+        <th>Patient:</th>
+        <th>Date:</th>
+        <th>Time:</th>
+        <th>Reason:</th>
+        <th>Modify:</th>
+        {% for app in appointments %}
+        <tr>
+            <td> {{ app.doctorID.personID.user.last_name }}</td>
+            <td>{{ app.patientID.personID.user.first_name }} {{ app.patientID.personID.user.last_name }}</td>
+
+            <td> {{ app.aptDate }}</td>
+            <td> {{ app.aptTime }}</td>
+            <td> {{ app.reason }} </td>
+            <td>
+                <a class='confirm' href="{% url 'appointment:update' app.id%}"> &#x270e; Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- If a doctor or patient is viewing the page -->
+{% else %}
+<div class="centerBox">    
+    <table id="patientTable" class='table table-striped'>
+        {% if request|isPatient%}
+        <th>Doctor:</th>
+        {% elif request|isDoctor %}
+        <th>Patient:</th>
+        {% endif %}
+        <th>Date:</th>
+        <th>Time:</th>
+        <th>Reason:</th>
+        <th>Modify:</th>
+        
+        {% for app in appointments %}
+        <tr>
+            {% if request|isPatient%}
+            <td> {{ app.doctorID.personID.user.last_name }}</td>
+            {% elif request|isDoctor %}
+            <td>{{ app.patientID.personID.user.first_name }} {{ app.patientID.personID.user.last_name }}</td>
+            {% endif %}
+
+            <td> {{ app.aptDate }}</td>
+            <td> {{ app.aptTime }}</td>
+            <td> {{ app.reason }} </td>
+            <td>
+                <a class='confirm' href="{% url 'appointment:update' app.id%}"> &#x270e; Edit</a>
+                {% if not request|isNurse %}
+                <a class='delete' data-toggle='modal' data-target="#{{app.id}}"> &#10006; Delete</a>
+                {% endif %}
+
+                {% if not request|isPatient and app.patientID.hospitalID == None %}
+                <a class='confirm' href="{% url 'patient:admitPatient' app.id%}"> &#10004; Admit</a>
+                {% endif %}
+            </td>
+        </tr>
+
+        <div id="{{app.id}}" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title helpText">Are you sure you want to delete this appointment?</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div id='form-container'>
+                        <form id="DeleteAppointment" method="post" action="{% url 'appointment:delete' app.id %}">
+                            {% csrf_token %}
+                            <p> This will delete your appointment at: {{ app.aptTime }} at {{ app.aptDate }} </p>
+                            {{ form.as_p }}
+                        </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default neutral" data-dismiss="modal">Cancel</button>
+                    <a id='formSubmit' class="btn btn-default delete">Yes, delete it</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    </table>
+</div>
+
+<div class='center-container'>
+    <h3 class='helpText'> Actions: </h3>
+    {% if request|isPatient %}
+        <a class='confirm' href="{% url 'appointment:schedule' %}"> &#x270e; Create an appointment</a>
+        <br>
+    {% elif request|isDoctor %}
+        <a class='confirm' href="{% url 'appointment:scheduleDoctor' %}"> &#x270e; Create an appointment</a>
+        <br>
+    {% elif request|isNurse %}
+        <a class='confirm' href="{% url 'appointment:scheduleNurse' %}"> &#x270e; Create an appointment</a>
+        <br>
+    {% endif %}
+</div>
+{% endif %}
+
+
+<div id="" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title helpText">View appointment details</h4>
+      </div>
+      <div class="modal-body">
+        <div id='form-container'>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default neutral" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-default delete">Yes, delete it</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="eventContent" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 id='modalTitle' class="modal-title helpText"></h4>
+      </div>
+      <div id="modalBody" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default neutral" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'js/fullcalendar.min.js' %}"></script>
+{% if request|isDoctor or request|isPatient %}
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+        $('#appointmentCalendar').fullCalendar({
+            // put your options and callbacks here
+            height: 440,
+            events: {{ cal }},
+            titleFormat: 'M/D/YYYY',
+            weekends: true,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay',
+            },
+            allDay: false,
+
+
+            eventClick: function(event, jsEvent, view) {
+                $('#modalTitle').html("Appointment with " + event.title);
+                $('#modalBody').html("<h4>" + event.description + "</h4>");
+                $("#eventContent").modal();
+            }
+
+        });
+
+        // Add the active class
+        $('li[data-item="appointments"]').addClass("active");
+
+        // Make the modal button submit the form
+        $('body').on('click', '#formSubmit', function(e) {
+            $('#DeleteAppointment').submit();
+            $('#confirmModal').modal('hide');
+        });
+    });
+
+</script>
+{% else %}
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // page is now ready, initialize the calendar...
+        $('#appointmentCalendar').fullCalendar({
+            // put your options and callbacks here
+            height: 440,
+            events: {{ cal }},
+            titleFormat: 'M/D/YYYY',
+            weekends: true,
+            defaultView: 'agendaDay',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'agendaWeek,agendaDay',
+            },
+            allDay: false,
+
+
+            eventClick: function(event, jsEvent, view) {
+                $('#modalTitle').html("Appointment with " + event.title);
+                $('#modalBody').html("<h4>" + event.description + "</h4>");
+                $("#eventContent").modal();
+            }
+
+        });
+
+        // Add the active class
+        $('li[data-item="appointments"]').addClass("active");
+    });
+
+</script>
+{% endif %}
+
+{% endblock scripts %}

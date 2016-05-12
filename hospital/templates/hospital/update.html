@@ -1,0 +1,38 @@
+{% extends "base/navbar.html" %}
+
+{% block register %}
+    <title>HealthNet - Update Hospital</title>
+
+    {% if update %}
+    <strong>The hospital has been updated.</strong>
+    <a href="{% url 'base:landing' %}">Return to the homepage.</a><br/>
+    {% else %}
+
+
+    <form id="HospitalForm" method="post" action="{% url 'hospital:update' %}"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <!-- Display each form. The as_p method wraps each element in a paragraph
+             (<p>) element. This ensures each element appears on a new line,
+             making everything look neater. -->
+        {{ hospitalForm.as_p }}
+        {{ addressForm.as_p }}
+
+        <!-- Provide a button to click to submit the form. -->
+        <input class='confirm' type="submit" name="submit" value="Register"/>
+        <a class='delete' href="{% url 'hospital:view' %}">Cancel</a>
+    </form>
+    {% endif %}
+
+{% endblock register %}
+
+{% block scripts %}
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+{% endblock %}

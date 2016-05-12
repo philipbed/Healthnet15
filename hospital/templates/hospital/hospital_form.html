@@ -1,0 +1,37 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+    <title>HealthNet - Edit Hospital</title>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'hospital:update' hospital.id%}" method="post">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ form.name.errors }}
+            <label>Hospital Name:</label>
+            {{ form.name }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.address.errors }}
+            <label for="{{ form.hos.id_for_label }}">Address: </label>
+            {{ form.address }}
+        </div>
+
+        <input class='confirm' type="submit" name="Submit" value="Save"/>
+        <a class='delete' href="{% url 'hospital:view' %}">Cancel</a>
+    </form>
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+{% endblock %}

@@ -1,0 +1,175 @@
+<!-- TEST COVER -->
+{% load staticfiles %}
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+
+        <title>HealthNet - Home</title>
+
+        <!-- Bootstrap core CSS -->
+        <link type='text/css' href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{% static 'css/landing.css' %}" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    </head>
+
+    <body>
+
+	    <!-- Have a navbar class -->
+	    <nav class="navbar navbar-default navbar-fixed-top">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+	                        aria-expanded="false" aria-controls="navbar">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="{% url 'base:landing' %} ">HealthNet</a>
+	            </div>
+	            <div id="navbar" class="navbar-collapse collapse">
+	                <ul class="nav navbar-nav">
+	                    <li data-item="about"><a href="#about">What is HealthNet?</a></li>
+	                    <li data-item="about"><a href="#features">Features</a></li>
+	                    <li data-item="about"><a href="#information">Information</a></li>
+	                    <li data-item="about"><a href="#about-us">About us</a></li>
+	                </ul>
+
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li role="separator" class="divider"></li>
+	                    <li data-item="register"><a href="{% url 'register:createPatient' %}">Sign up</a></li>
+	                    <li data-item="login"><a href="{% url 'profile:userLogin' %}">Login</a></li>
+	                </ul>
+	            </div>
+	       	</div>
+	    </nav>
+
+
+		<!-- first section - Home -->
+		<div id="home" class="home">
+		  <div class="text-vcenter">
+		    <h1>HealthNet</h1>
+		    <h3>Revolutionizing the future of medicine.</h3>
+		    <a href="#about" class="btn btn-default btn-lg">About us</a>
+		  </div>
+		</div>
+		<!-- /first section -->
+
+		<!-- second section - About -->
+		<div id="about" class="pad-section">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-sm-6">
+		        <img class='logo' src="{% static 'img/healthcare.jpg' %}" alt="" />
+		      </div>
+		      <div class="col-sm-6 text-center">
+		        <h2>Healthcare, simplified.</h2>
+		        <p class="lead">In the modern age, dealing with your health shouldn't be complicated. 
+		        At HealthNet, we empower users to connect directly with their healthcare professionals.
+		        With HealthNet, you can take your health in your own hands.</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- /second section -->
+
+		<!-- third section - Features -->
+		<div id="features" class="pad-section">
+		  <div class="container">
+		    <h2 class="text-center">Features</h2> <hr />
+		    <div class="row text-center">
+		      <div class="col-sm-3 col-xs-6">
+		        <i class="glyphicon glyphicon-user"> </i>
+		        <h4>Medical history</h4>
+		        <p>Keep track of your medical history, and share it with your doctor. Everyone's on the same
+		        page.</p>
+		      </div>
+		      <div class="col-sm-3 col-xs-6">
+		        <i class="glyphicon glyphicon-calendar"> </i>
+		        <h4>Appointments</h4>
+		        <p>Directly schedule appointments with your doctor. No phone calls, no fuss.</p>
+		      </div>
+		      <div class="col-sm-3 col-xs-6">
+		        <i class="glyphicon glyphicon-transfer"> </i>
+		        <h4>Prescriptions</h4>
+		        <p>Quickly refill prescriptions. It's as easy as 1, 2, 3.</p>
+		      </div>
+		      <div class="col-sm-3 col-xs-6">
+		        <i class="glyphicon glyphicon-comment"> </i>
+		        <h4>Messaging</h4>
+		        <p>Directly message your doctor, without a need for phone calls or visits. Call me, never.</p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- /third section -->
+
+		<!-- fourth section - Information -->
+		<div id="information" class="pad-section">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-sm-12">
+		        <div class="panel panel-default">
+		          <div class="panel-heading">
+		            <h2 class="panel-title">Your information, secured.</h2>
+		          </div>
+		          <div class="panel-body lead">
+		            HealthNet is a health application that puts your security first. Doctors,
+		            nurses, and patients have a unique experience tailored to them. Your private information is only shared between you and your trusted medical professionals. 
+		          </div>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		</div>
+		<!-- /fourth section -->
+
+
+		<!-- fifth section -->
+		<div id="about-us" class="pad-section">
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-sm-12 text-center">
+		        <h3>Made with love and care in Rochester, NY.</h3>
+		        <h4>The future is now.</h4>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- /fifth section -->
+
+		<!-- footer -->
+		<footer>
+		  <hr />
+		  <div class="container">
+		    <p class="text-right">Copyright &copy; Golisano Super Squad 2015</p>
+		  </div>
+		</footer>
+		<!-- /footer -->
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    </body>
+    </html>
+</DOCTYPE>

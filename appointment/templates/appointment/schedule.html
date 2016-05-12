@@ -1,0 +1,302 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+
+{% block style %}
+    <link type="text/css" href="{% static 'css/bootstrap-datetimepicker.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block content %}
+
+    <title>HealthNet - Schedule Appointment </title>
+
+    {% if appointment_success %}
+    <h3 class='helpText'>Your appointment has been scheduled! Return to your
+        <a href="{% url 'appointment:view' %}">Appointment List</a></h3>
+
+    <!-- If there is a conflict or the appointment isn't yet created -->
+    {% else %}
+        {% if apptConflict %}
+            {% if patient %}
+                <p>Sorry, you already have an appointment with a doctor at this time.
+                    <a href="{% url 'appointment:schedule' %}">Click Here</a> to add an appointment at a different time.</p>
+            {% elif doctor %}
+                <p>Sorry, you already have an appointment with a patient at this time.
+                    <a href="{% url 'appointment:scheduleDoctor' %}">Click Here</a> to add an appointment at a different time.</p>
+            {% endif %}
+        {% elif docConflict %}
+            {% if patient %}
+                <p>Sorry, this doctor is unavailable at this time.
+                    <a href="{% url 'appointment:schedule' %}">Click Here</a> to add an appointment at a different time.</p>
+            {% elif doctor %}
+                <p>Sorry, you already have an appointment with a patient at this time.
+                    <a href="{% url 'appointment:scheduleDoctor' %}">Click Here</a> to add an appointment at a different time.</p>
+            {% endif %}
+        {% elif patConflict %}
+            {% if patient %}
+                <p>Sorry, you already have an appointment with a doctor at this time.
+                    <a href="{% url 'appointment:schedule' %}">Click Here</a> to add an appointment at a different time</p>
+            {% elif doctor %}
+                <p>Sorry, the patient already have an appointment with another doctor at this time.
+                    <a href="{% url 'appointment:scheduleDoctor' %}">Click Here</a> to add an appointment at a different time.</p>
+            {% endif %}
+
+        <!--  If not a conflict, then creating the appointment  -->
+        {% else %}
+        <h3 class="helpText">{{ user.first_name }}, when would you like to schedule your appointment?</h3>
+
+            <!-- If a patient is creating the appointment -->
+            {% if patient %}
+            <div id="form-container">
+            <form id="appointmentForm" class='form-center' method="post" action="{% url 'appointment:schedule' %}">
+                {% csrf_token %}
+
+                <!-- The doctor drop down -->
+                <div class="fieldWrapper">
+                    <span class='errorText'>{{ appointmentForm.docList.errors }}</span>
+                    <label>Doctor:</label> {{ appointmentForm.docList }}
+                </div>
+                <h3><a href="{% url 'appointment:view' %}">Appointment List</a></h3>
+
+
+                <!-- The date field for the appointment -->
+                <span class='errorText'>{{ appointmentForm.date_field.errors }}</span>
+                <label for="id_date_field" style="float:left;margin-top:5px;">Date [MM/DD/YYYY]:</label>
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="datepicker" class="input-group date">
+                                    <input id="id_date_field" class="form-control" name="date_field" type="text" value="{{appointmentForm.date_field.value}}"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <!--  The time field for the appointment -->
+                <span class='errorText'>{{ appointmentForm.time.errors }}</span>
+                <label for="id_time" style="float:left;margin-top:5px;">Time [HH-MM]:</label>
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="timepicker" class="input-group date">
+                                    <input id="id_time" name="time" class="form-control" type="text" value="{{appointmentForm.time.value}}"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <!-- The reason field -->
+                <span class='errorText'>{{ appointmentForm.reason.errors }}</span>
+                <label for="id_reason" style="float:left;margin-top:5px;">Reason for appointment</label>
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6'>
+                                <textarea id="id_reason" name="reason" class="form-control" type="text">{{appointmentForm.reason.value|default_if_none:""}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class='neutral' href="{% url 'appointment:view' %}">Cancel</a>
+                <input class='confirm right' type="submit" name="Submit"/>
+            </form>
+            </div>
+
+            <!--  If a doctor is creating the appointment -->
+            {% elif doctor %}
+            <div id='form-container'>
+            <form id="appointmentDoctorForm" class='form-center' method="post" action="{% url 'appointment:scheduleDoctor' %}">
+                {% csrf_token %}
+                <div class="fieldWrapper">
+                    <span class='errorText'>{{ appointmentForm.patList.errors }}</span>
+                    <label>Patient:</label> {{ appointmentForm.patList }}
+                </div>
+                <h3><a href="{% url 'appointment:view' %}">Appointment List</a></h3>
+
+                <!-- The date field -->
+                <span class='errorText'>{{ appointmentForm.aptDate.errors }}</span>
+                <label for="id_date_field" style="float:left;margin-top:5px;">Date [MM/DD/YYYY]</label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="datepicker" class="input-group date">
+                                    <input id="id_date_field" class="form-control" name="date_field" type="text"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <!--  The time field -->
+               <span class='errorText'> {{ appointmentForm.aptTime.errors }}</span>
+                <label for="id_time" style="float:left;margin-top:5px;">Time [HH:MM]:</label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="timepicker" class="input-group date">
+                                    <input id="id_time" name="time" class="form-control" type="text" value="{{appointmentForm.time.value}}"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <!-- The reason field -->
+                <label for="id_reason" style="float:left;margin-top:5px;">Reason for appointment</label>
+                <span class='errorText'>{{ appointmentForm.reason.errors }}</span>
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6'>
+                                <textarea id="id_reason" name="reason" class="form-control" type="text">{{appointmentForm.reason.value|default_if_none:""}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a class='neutral' href="{% url 'appointment:view' %}">Cancel</a>
+                <input class='confirm right' type="submit" name="Submit"/>
+            </form>
+            </div>
+
+            {% elif nurse %}
+            <div id='form-container'>
+            <form id="appointmentNurseForm" class='form-center' method="post" action="{% url 'appointment:scheduleNurse' %}">
+                {% csrf_token %}
+                <div class="fieldWrapper">
+                    {{ appointmentForm.patList.errors }}
+                    <label>Patient:</label> {{ appointmentForm.patList }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ appointmentForm.docList.errors }}
+                    <label>Doctors:</label> {{ appointmentForm.docList }}
+                </div>
+                <h3><a href="{% url 'appointment:view' %}">Appointment List</a></h3>
+
+                <!-- The date field -->
+                {{ appointmentForm.aptDate.errors }}
+                <label for="id_date_field" style="float:left;margin-top:5px;">Date [MM/DD/YYYY]:</label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="datepicker" class="input-group date">
+                                    <input id="id_date_field" class="form-control" name="date_field" type="text"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+                <!--  The time field -->
+                {{ appointmentForm.aptTime.errors }}
+                <label for="id_time" style="float:left;margin-top:5px;">Time [HH:MM]:</label>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6' style="width:20%">
+                                <div id="timepicker" class="input-group date">
+                                    <input id="id_time" name="time" class="form-control" type="text"/>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <!-- The reason field -->
+                <label for="id_reason" style="float:left;margin-top:5px;">Reason for appointment</label>
+                {{ appointmentForm.reason.errors }}
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class='col-sm-6'>
+                                <textarea id="id_reason" name="reason" class="form-control" type="text"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <a class='neutral' href="{% url 'appointment:view' %}">Cancel</a>
+                <input class='confirm right' type="submit" name="Submit"/>
+            </form>
+            </div>
+            {% else %}
+            {% endif %}
+
+        {% endif %}
+
+    {% endif %}
+{% endblock content %}
+
+
+{% block scripts %}
+    <script src="{%static 'js/jquery.min.js' %}"></script>
+    <script src="{%static 'js/moment.min.js'%}"></script>
+    <script src="{%static 'js/bootstrap-datetimepicker.js'%}"></script>
+
+    <script type="text/javascript">
+        
+        $('#datepicker').datetimepicker({
+            format: 'MM/DD/YYYY',
+            showTodayButton: false,
+            minDate: moment(),
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('#timepicker').datetimepicker({
+            stepping: 30,
+            viewDate: false,
+            format: 'LT',
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="appointments"]').addClass("active");
+        });
+    </script>
+
+
+{% endblock scripts %}

@@ -1,0 +1,33 @@
+{% extends "base/navbar.html" %}
+
+{% block content %}
+
+    <title>HealthNet - Create Hospital </title>
+
+    {% if creation_success %}
+    <p>The hospital has been created return to the <a href="{% url 'hospital:view' %}">list of hospitals</a></p>
+
+    {% else %}
+        <h3>Create a hospital</h3>
+
+        <form id="HospitalForm" method="post" action="{% url 'hospital:create' %}">
+            {% csrf_token %}
+            {{ hospitalForm.as_p }}
+            {{ addressForm.as_p }}
+            <!-- Provide a button to click to submit the form. -->
+            <input class='confirm' type="submit" name="submit" value="Create"/>
+            <a class='delete' href="{% url 'hospital:view' %}">Cancel</a>
+        </form>
+
+    {% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+<script type="text/javascript">
+        $(document).ready(function() {
+            // Add the active class
+            $('li[data-item="hospital"]').addClass("active");
+        });
+    </script> 
+{% endblock %}
