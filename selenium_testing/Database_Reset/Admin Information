@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Admin Information</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Admin Information</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/home/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin Interface</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admins</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Good Hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>Hospital Road</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_hospitalID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#add_id_doctorID &gt; img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_doctorID</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_doctorID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_licenseNumber</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_specialty</td>
+	<td>Feet</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_personID</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_personID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>678943456</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_user</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>Doctor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password1</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password2</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_personID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_birthday</td>
+	<td>1990-11-02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>1234567890</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_doctorID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Change&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_personID</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_personID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_doctorID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_patientID</td>
+	<td>label=George Herde</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_patientID</td>
+	<td>label=Bobby Lee Swagger</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_patientID</td>
+	<td>label=George Herde</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_patientID</td>
+	<td>label=George Herde</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_hospitalID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#add_id_personID &gt; img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_personID</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_personID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>123465789</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Add&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_user</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>HospitalAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password1</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password2</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_personID</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_birthday</td>
+	<td>1967-11-02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>4322167777</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Doctors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=_selected_action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Base</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Doctors</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Base</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Change')])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=LicenseNumber</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Base</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Persons</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=678943456</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Change&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_user</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Doctor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Rotcod</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>doctor@doctor.com</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_groups_from</td>
+	<td>label=Admin</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_groups_from</td>
+	<td>label=Admin</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_groups_from</td>
+	<td>label=Doctor</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_groups_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=123465789</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=img[alt=&quot;Change&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForPopUp</td>
+	<td>id_user</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=id_user</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>HosAdmin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Minda</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>minda@admin.com</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_groups_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Base</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=tr.model-root &gt; td &gt; a.addlink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Root object</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Base</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

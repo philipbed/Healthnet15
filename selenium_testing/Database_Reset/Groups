@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Groups</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Groups</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/admin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Groups</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Nurse</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can add group</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can add group</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can change group</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can change group</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | appointment | Can add appointment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | appointment | Can change appointment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | user | Can add user</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | address | Can add address</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | emergency contact | Can add emergency contact</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | emergency contact | Can change emergency contact</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can add patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can change patient</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | medical history | Can add medical history</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | medical history | Can change medical history</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | test results | Can add test results</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | person | Can add person</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | person | Can change person</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Root</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=admin | log entry | Can delete log entry</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_all_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can delete hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_remove_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can add hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_remove_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_all_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can change hospital</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can change hospital</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can delete hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_remove_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can add hospital</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_to</td>
+	<td>label=base | hospital | Can change hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_remove_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | hospital | Can add hospital</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_all_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Doctor</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can add group</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | group | Can add group</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | user | Can add user</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | user | Can change user</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=auth | user | Can delete user</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | address | Can add address</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | address | Can change address</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | address | Can delete address</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | appointment | Can add appointment</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | appointment | Can change appointment</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | appointment | Can delete appointment</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | doctor | Can change doctor</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | emergency contact | Can add emergency contact</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | emergency contact | Can change emergency contact</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | emergency contact | Can delete emergency contact</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | insurance | Can add insurance</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | insurance | Can change insurance</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | insurance | Can delete insurance</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | medical history | Can add medical history</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | medical history | Can change medical history</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | medical history | Can delete medical history</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can add patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | nurse | Can add nurse</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can add patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | nurse | Can change nurse</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | nurse | Can delete nurse</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can add patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can change patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | patient | Can delete patient</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | person | Can add person</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | person | Can change person</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | person | Can delete person</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | prescription | Can add prescription</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | prescription | Can change prescription</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | prescription | Can delete prescription</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | test results | Can add test results</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | test results | Can change test results</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=contenttypes | content type | Can add content type</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=base | test results | Can delete test results</td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>id=id_permissions_from</td>
+	<td>label=contenttypes | content type | Can add content type</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_permissions_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Patient</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Users</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Mindy</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Admin</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>id=id_groups_from</td>
+	<td>label=Root</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_groups_add_link</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Persons</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add person</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>876563456</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_user</td>
+	<td>label=admin</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Today</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_birthday</td>
+	<td>1945-11-09</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>6788763456</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Roots</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add root</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_personID</td>
+	<td>label=Mindy Admin</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=_save</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

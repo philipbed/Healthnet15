@@ -1,0 +1,27 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load static %}
+{% load app_filters %}
+
+{% block content %}
+{% if results|length == 0 %}
+    <h1>There are no test results for view. Please try again later.</h1>
+{% else %}
+<div class="centerBox">
+    <table id="testTable" class='table table-striped'>
+        <th>Patient:</th>
+        <th>File:</th>
+        <th>Comments:</th>
+        {% for res in results %}
+        <tr>
+
+            <td>{{ res.patient }}</td>
+            <td> <a href="{{MEDIA_URL}}{{res.results}}">Test File</a></td>
+            <td><a href="{%url 'results:viewComments' res.id%}">Comments</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}

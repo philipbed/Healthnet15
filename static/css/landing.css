@@ -1,0 +1,186 @@
+/* general styles */
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;  
+}
+
+/* Change the brand/HealthNet font to be larger */
+.navbar-brand {
+  font-size: 24px;
+}
+
+/* Change the masthead font */ 
+.navbar-brand, .navbar ul li a {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* navbar styling */
+.navbar-default {
+  background-color: #067BC2;
+  border-color: #067BC2!important;
+}
+
+/* Change the hover/highlight color */
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #E8EEF2;
+}
+
+/* Change the active class to fit the color scheme */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: #079ddb;
+  color: #fff;
+}
+
+/* Active tabs have a line to designate that they're active */
+@media (min-width: 768px) {
+  .navbar-default .navbar-nav > .active {
+    border-bottom: 5px solid #fff;
+  }
+}
+
+/* Change the font of the header text */
+.dropdown-header {
+    font-family: 'Montserrat', Arial;
+    text-transform: uppercase;
+  }
+
+/* Change the color of hamburger menu text */
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+
+  .dropdown-header {
+    color: #fff;
+  }
+
+  /* Change the hover color in the hamburger menu */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #E8EEF2;
+  }
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #079ddb;
+  }
+
+}
+
+/* Change the color of navbar links */
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-default .navbar-toggle {
+  border-width: 2px;
+  border-color: #fff;
+}
+
+/* Change the color of the hamburger menu */
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #079ddb;
+}
+
+/* Header tricks */
+#about, #features, #about-us{
+  border-top: 50px solid transparent;
+  margin-top: -50px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+}
+
+
+/* padded section */
+.pad-section {
+  padding: 50px 0;
+}
+.pad-section img {
+  width: 100%;
+}
+
+/* vertical-centered text */
+.text-vcenter {
+  color: white;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.text-vcenter h1 {
+  font-size: 4.5em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* Give the button more space */
+.text-vcenter a {
+  margin-top: 30px;
+}
+
+
+/* additional sections */
+#home {
+  background: url("../img/hero2.jpg"); no-repeat center center fixed; 
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#about {
+}
+
+#features, #about-us {
+  background-color: #306d9f;
+  color: #ffffff;
+}
+#features .glyphicon {
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 60px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  vertical-align: middle;
+  width: 140px;
+}
+
+#information {
+  background: url("../img/parallax2.jpg") no-repeat center center fixed; 
+  display: table;
+  height: 400px;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#information .panel {
+  opacity: 0.85;
+}
+
+
+footer {
+  padding: 10px 0;
+}
+footer .glyphicon {
+  color: #333333;
+  font-size: 60px;
+}
+footer .glyphicon:hover {
+  color: #306d9f;
+}
+

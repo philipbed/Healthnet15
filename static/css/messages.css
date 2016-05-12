@@ -1,0 +1,153 @@
+/* Table listing */
+.messages {
+	font-family: 'Helvetica Neue', sans-serif;
+	width: 100%;
+}
+
+.messages th {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.messages tr {
+	padding: 5px;
+}
+
+/* Text containers */
+#text-container {
+	padding: 20px;
+	display: block;
+	width: 75%;
+	margin: 0 auto;
+}
+
+.circle {
+	/* Text styling */
+	color: white;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+
+	display: inline-block;
+	margin-right: 30px;
+	line-height:100px;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	background-color: #007bff;
+}
+
+.sentCircle {
+	/* Text styling */
+	color: #6c6c6c;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3em;
+
+	float: right;
+	display: inline-block;
+	margin-left: 30px;
+	line-height:100px;
+	width: 100px;
+	height: 100px;
+	border-radius: 100px;
+	background-color: #CECECE;
+}
+
+.message {
+    background-color: #007bff ;
+    border-radius: 0px 5px 5px 5px;
+	 -moz-border-radius: 0px 5px 5px 5px;
+	 -webkit-border-radius: 0px 5px 5px 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    display: inline-block;
+    padding: 30px 30px;
+    position: relative;
+    vertical-align: top;
+}
+
+.message:before {
+  content:"";
+  position: absolute;
+  right: 100%;
+  top: 0px;
+  z-index: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #007bff transparent transparent;
+  border-width: 0 20px 20px 0;
+}
+
+/* Create a sent message class */
+.sentMessage {
+	float: right;
+	background-color: #CECECE;
+	border-radius: 5px 0px 5px 5px;
+	 -moz-border-radius: 5px 0px 5px 5px;
+	 -webkit-border-radius: 5px 0px 5px 5px;
+	box-shadow: 0 0 6px #B2B2B2;
+	display: inline-block;
+	padding: 30px 30px;
+	position: relative;
+	vertical-align: top;
+}
+
+.sentMessage:before {
+  content:"";
+  position: absolute;
+  float: right;
+  left: 100%;
+  top: 0;
+  z-index: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #cecece transparent transparent;
+}
+
+.message > #subject {
+	/*Text styling*/
+	color: #fff;
+	font-size: 1.5em;
+	font-weight: 600;
+}	
+
+.message > #text {
+	/* Text styling */
+	color: #fff;
+	font-size: 1.5em;
+}
+
+.sentMessage > #subject {
+	color: black;
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+.sentMessage > #text {
+	color: black;
+	font-size: 1.5em;
+}
+
+#date {
+	color: #fff;
+	text-align: left;
+	font-size: 1em;
+}
+
+#sentDate {
+	color: black;
+	text-align: left;
+	font-size: 1em;
+}
+
+/* Button styling */
+
+#float-container {
+	width: 75%;
+	margin: 0 auto;
+}
+
+#float-container > .delete {
+	float: right;
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Registration Success</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Registration Success</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/register/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>George</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Herde</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>gh1823</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>gh1823@france.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>987654321</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=April</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_day</td>
+	<td>label=9</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_year</td>
+	<td>label=1996</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>2039128801</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>1 Steamboat Ln</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>14623</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>insurance</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_policyNumber</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_firstName</td>
+	<td>Nate</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_lastName</td>
+	<td>Etan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_emergencyNumber</td>
+	<td>987654321</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>FillDatabase</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">FillDatabase</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/profile/login/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create Doctor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Frank</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Storm</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>doctorstorm</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>storm@healthnet.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_confirmP</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>567874567</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=August</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_year</td>
+	<td>label=1967</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>2347654567</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>234 North Rd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>87678</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>New York</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_licenseNumber</td>
+	<td>9999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_specialty</td>
+	<td>Spine</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_hospitalID</td>
+	<td>label=Rochester General Hospital</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Hospitals')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Create Hospital</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>Strong Memorial Hospital</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>300 Crittenden Blvd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>14642</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Dan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Krutz</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>adminkrutz</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>krutz@healthnet.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_confirmP</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>678654567</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=July</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_day</td>
+	<td>label=10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_year</td>
+	<td>label=1985</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>9874564567</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>543 South Rd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>67890</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_hospitalID</td>
+	<td>label=Strong Memorial Hospital</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create Nurse</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Jessica</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Freeman</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>nursejess</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>jessica@healthnet.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_confirmP</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>678654567</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=April</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_day</td>
+	<td>label=6</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_year</td>
+	<td>label=1983</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>7654563456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>876 East Rd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>14623</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_license_number</td>
+	<td>8765</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_department</td>
+	<td>Ocular</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_hospitalID</td>
+	<td>label=Strong Memorial Hospital</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View Personnel</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hospitals</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create Doctor</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Professor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Swagger</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>doctorswag</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>swag@healthnet.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_confirmP</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>876562345</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=May</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_day</td>
+	<td>label=8</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_year</td>
+	<td>label=1968</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>4562341234</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>98 West Rd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>14623</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Rochester</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>New Canaan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>CT</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_licenseNumber</td>
+	<td>9997</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_specialty</td>
+	<td>Ocular</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_hospitalID</td>
+	<td>label=Strong Memorial Hospital</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

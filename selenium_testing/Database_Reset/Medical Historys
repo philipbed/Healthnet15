@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Medical Historys</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Medical Historys</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/home/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>gh1823</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Prescriptions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=George</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//a[contains(text(),'✎ Add your<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preferred hospitals')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_hospital</td>
+	<td>label=Strong Memorial Hospital</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Start Medical History</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histWeight</td>
+	<td>175</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histHeight</td>
+	<td>75</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histAge</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=id_histAllergyNone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_histWork</td>
+	<td>label=Student</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histWorkExplain</td>
+	<td>Rochester Institute of Technology</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histPrimaryName</td>
+	<td>Doctor John</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_histPrimaryNumber</td>
+	<td>8764563456</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=George</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View your appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[7]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//button[@type='button'])[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Messaging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Send a message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_recipient</td>
+	<td>label=Trudy Cake</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_subject</td>
+	<td>About our appointment</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_body</td>
+	<td>Thank you for seeing me on such short notice.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=HealthNet</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

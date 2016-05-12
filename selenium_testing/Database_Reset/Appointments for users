@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Appointments for users</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Appointments for users</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/home/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>nursedamme</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Messaging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Send a message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_recipient</td>
+	<td>label=Daniel Herzig</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_subject</td>
+	<td>I scheduled an appointment for you</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_body</td>
+	<td>Look at your appointments and you will see I made one for you.&nbsp;&nbsp;Looking forward to seeing you.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Create an appointment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_patList</td>
+	<td>label=Daniel Herzig</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_docList</td>
+	<td>label=Trudy Cake</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.glyphicon.glyphicon-calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='datepicker']/div/ul/li/div/div/table/tbody/tr[2]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.glyphicon.glyphicon-time</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.glyphicon.glyphicon-chevron-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.glyphicon.glyphicon-chevron-up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_reason</td>
+	<td>Asked for an appointment.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appointment List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Create an appointment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_patList</td>
+	<td>label=George Herde</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_docList</td>
+	<td>label=Trudy Cake</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.glyphicon.glyphicon-calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='datepicker']/div/ul/li/div/div/table/tbody/tr[2]/td[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#timepicker &gt; span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='timepicker']/div/ul/li[2]/div/div/table/tbody/tr[3]/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_reason</td>
+	<td>Sprained ankle</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appointment List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=John</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=HealthNet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>nursejackie</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Create an appointment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_patList</td>
+	<td>label=Bobby Lee Swagger</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_docList</td>
+	<td>label=John Doe</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='datepicker']/div/ul/li/div/div/table/tbody/tr[2]/td[5]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#timepicker &gt; span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='timepicker']/div/ul/li[2]/div/div/table/tbody/tr/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='timepicker']/div/ul/li[2]/div/div/table/tbody/tr/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_reason</td>
+	<td>Annual checkup</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appointment List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Appointments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Create an appointment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_docList</td>
+	<td>label=Frank Storm</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_patList</td>
+	<td>label=Philip Bedward</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='datepicker']/div/ul/li/div/div/table/tbody/tr[3]/td[6]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#timepicker &gt; span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='timepicker']/div/ul/li[2]/div/div/table/tbody/tr[3]/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='timepicker']/div/ul/li[2]/div/div/table/tbody/tr[3]/td[3]/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#timepicker &gt; span.input-group-addon</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-primary</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_reason</td>
+	<td>Too much candy</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Appointment List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Messaging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Send a message</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_recipient</td>
+	<td>label=John Van Damme</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_subject</td>
+	<td>Welcome to Healthnet</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_body</td>
+	<td>So nice to have another nurse on staff!</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Jackie</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=HealthNet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=username</td>
+	<td>nursedamme</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Patients</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Messaging</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=View your messages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=✎ Reply</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_body</td>
+	<td>Thanks so much that's so sweet of you</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input.confirm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Welcome to Healthnet</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=◄ Back to inbox</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=John</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=li.dropdown-header</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=John</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

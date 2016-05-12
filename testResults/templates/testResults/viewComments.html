@@ -1,0 +1,18 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load static %}
+{% load app_filters %}
+
+{% block content %}
+
+{% if comments == "" %}
+    <h1>No comments have been added for this test. Please try again later.</h1>
+{% else %}
+<h1>Comments for your test results.</h1>
+<label for="id_comments">Comments about test results:</label>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;{{ comments }}</p>
+<br>
+<br>
+<p>Return to your <a href="{% url 'results:viewTestResults' %}">list of test results.</a></p>
+{%endif%}
+{% endblock %}

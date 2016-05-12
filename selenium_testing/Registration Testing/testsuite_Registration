@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="Registration_Failure_8">No Firstname</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure">Confirm Failure 1</a></td></tr>
+<tr><td><a href="Registration_Failure_1">No Lastname</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_2">Confirm Failure 2</a></td></tr>
+<tr><td><a href="Registration_Failure_2">No Username</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_3">Confirm Failure 3</a></td></tr>
+<tr><td><a href="Registration_Failure_3">No Email</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_4">Confirm Failure 4</a></td></tr>
+<tr><td><a href="Registration_Failure_4">No Password</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_5">Confirm Failure 5</a></td></tr>
+<tr><td><a href="Registration_Failure_5">No SSN</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_6">Confirm Failure 6</a></td></tr>
+<tr><td><a href="Registration_Failure_6">No Birthday</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_7">Confirm Failure 7</a></td></tr>
+<tr><td><a href="Registration_Failure_7">No Phonenumber</a></td></tr>
+<tr><td><a href="Registration_Confirm_Failure_8">Confirm Failure 8</a></td></tr>
+<tr><td><a href="Registration_Success">Registration Success</a></td></tr>
+<tr><td><a href="Reverse_Registration">Reverse Registration</a></td></tr>
+</tbody></table>
+</body>
+</html>

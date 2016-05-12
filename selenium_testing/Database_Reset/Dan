@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://127.0.0.1:8000/" />
+<title>Dan</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Dan</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/healthnet/home/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_first_name</td>
+	<td>Daniel</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_last_name</td>
+	<td>Herzig</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_username</td>
+	<td>dxh9845</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_email</td>
+	<td>dxh9845@rit.edu</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_password</td>
+	<td>gucun43</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_confirmP</td>
+	<td>gucun43</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_ssn</td>
+	<td>123456788</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=id_birthday_month</td>
+	<td>label=June</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_phoneNumber</td>
+	<td>7165739351</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_street</td>
+	<td>24 South Irving Terrace</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_zip</td>
+	<td>14223</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_city</td>
+	<td>Buffalo</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_state</td>
+	<td>NY</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_name</td>
+	<td>BLUE CROSS </td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_policyNumber</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_firstName</td>
+	<td>KATHY</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_lastName</td>
+	<td>Herzig</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_firstName</td>
+	<td>Kathy</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id_emergencyNumber</td>
+	<td>7168675309</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Return to the homepage.</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

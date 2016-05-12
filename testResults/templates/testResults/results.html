@@ -1,0 +1,31 @@
+{% extends "base/navbar.html" %}
+{% load staticfiles %}
+{% load static %}
+{% load app_filters %}
+
+{% block content %}
+<div class='center-container'>
+    {% if request|isDoctor or request|isAdmin %}
+        <a class='confirm' href="{%url 'results:uploadTest' %}">Upload a Test</a>
+    {% endif %}
+</div>
+<div class="centerBox">
+    <table id="testTable" class='table table-striped'>
+        <th>Patient:</th>
+        <th>File:</th>
+        <th>Published?</th>
+        {% for res in results %}
+        <tr>
+
+            <td>{{ res.patient }}</td>
+            <td> <a href="{{MEDIA_URL}}{{res.results}}">Test File</a></td>
+            <td> {% if res.published %} YES {%else%} NO {%endif%}</td>
+            <td>
+                <a class='confirm' href="{% url 'results:updateTest' res.id%}"> &#x270e; Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

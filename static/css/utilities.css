@@ -1,0 +1,143 @@
+/* This CSS file contains custom styling for utilities like
+tables, buttons, and inputs */
+
+/* Table styling */
+#customTable {
+	background-color: #E8EEF2;
+}
+
+table {
+	background-color: #fff;
+}
+
+.fixed-table {
+    table-layout: fixed;
+}
+
+.table-heading {
+	text-align: center;
+	text-transform: uppercase;
+	background-color: #ececec;
+}
+
+.helpText {
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+.margin-bottom {
+	margin-bottom: 20px;
+}
+
+.blockTD {
+	display: block;
+}
+ 
+.center-container {
+	text-align: center;
+}
+
+
+/* Create a class for confirm buttons */
+.confirm {
+	text-align: center;
+	min-width: 75px;
+	display: inline-block;
+	border-radius: 3px;
+	padding: 5px;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	background-color: #00A676;
+}
+
+.confirm:hover {
+	color: white;
+	background-color: #00d99a;
+}
+
+/* Create a class for delete/negating buttons */
+.delete {
+	text-align: center;
+	min-width: 75px;
+	padding: 5px;
+	border-radius: 3px;
+	display: inline-block;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	background-color: #F03C44;
+}
+
+.delete:hover {
+	color: white;
+	background-color: #F2545B;
+}
+
+/* Create a neutral button*/
+.neutral {
+	text-align: center;
+	min-width: 75px;
+	padding: 5px;
+	border-radius: 3px;
+	display: inline-block;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	background-color: #CECECE;
+}
+
+.neutral:hover {
+	color: black;
+	background-color: #E4E4E4;
+}
+
+.longButton {
+    display: inline-block;
+    width: 200px;
+}
+
+#header {
+	position: relative;
+	text-align: center;
+}
+
+/* Forms */
+
+#form-container {
+	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	text-align: center;
+}
+
+.form-center {
+	display: inline-block;
+	text-align: left;
+}
+
+.sixtyfive {
+	width: 65%;
+}
+
+#user_form, #messageForm, #prescriptionForm, #appointmentForm {
+	width: 65%;
+}
+
+#user_form .confirm, #updateForm .confirm, {
+	float: right;
+}
+
+
+.right {
+	float: right;
+}
+
+#medicalForm label {
+	margin-left: 25px;
+}
+
+
+/* Error class */
+.errorText {
+	color: red;
+}

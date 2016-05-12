@@ -1,0 +1,117 @@
+body {
+	background-color: #E8EEF2;
+}
+
+h1 {
+	text-align: center;	
+	font-family: 'Montserrat', sans-serif;
+}
+
+.jumbotron {
+	background-color: #E8EEF2;
+}
+
+/* Change the brand/HealthNet font to be larger */
+.navbar-brand {
+	font-size: 22px;
+}
+
+/* Have a special active class for the home link */
+.activeHome {
+	background-color: #079ddb;
+}
+
+.activeHome:hover {
+	background-color: #079ddb!important;
+}
+
+/* Change the masthead font */ 
+.navbar-brand, .navbar ul li a {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Change the default navbar color and make
+it positionally aware */
+.navbar-default {
+	background-color: #067BC2;
+	position: relative;	
+}
+
+/* Change the hover/highlight color */
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #E8EEF2;
+}
+
+/* Change the hover color on the user profile */
+.navbar-default .navbar-nav > li > a:hover {
+	color: #E8EEF2;
+}
+
+/* Change the active class to fit the color scheme */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: #079ddb;
+	color: #fff;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: #067BC2!important;
+}
+
+/* Active tabs have a line to deignate that they're active */
+@media (min-width: 768px) {
+	.navbar-default .navbar-nav > .active {
+		border-bottom: 5px solid #fff;
+	}
+}
+
+/* Change the font of the header text */
+.dropdown-header {
+  	font-family: 'Montserrat', Arial;
+  	text-transform: uppercase;
+  }
+
+/* Change the color of hamburger menu text */
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+
+  .dropdown-header {
+  	color: #fff;
+  }
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  	color: #fff;
+  }
+
+  /* Change the hover color in the hamburger menu */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+  	color: #E8EEF2;
+  }
+
+  .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  	background-color: #079ddb;
+  }
+
+}
+
+/* Change the color of navbar links */
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > li > a {
+	color: #fff;
+}
+
+.navbar-default .navbar-toggle {
+	border-width: 2px;
+	border-color: #fff;
+}
+
+/* Change the color of the hamburger menu */
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #079ddb;
+}
+
+/* Change the hover color of the hamburger menu*/

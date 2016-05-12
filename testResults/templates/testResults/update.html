@@ -1,0 +1,37 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% block content %}
+
+<title>Upload test Results</title>
+
+<form id="UploadResults" class='form-center' method="post" action="{% url 'results:updateTest' id%}"enctype="multipart/form-data">
+    {%csrf_token%}
+    {{ form.errors }}
+    {#{{ form.as_p}}#}
+    <tr>
+        <th>
+            <label for="id_results">Results:</label>
+        </th>
+        <td>
+            <br>
+            <p>Current File: <a href="/media/files/Lab_8.pdf">Test file</a></p>
+        <br />
+            <p>Change: <input id="id_results" name="results" type="file" /></p>
+        </td>
+    </tr>
+
+    <label for="id_comments">Additional Comments:</label>
+    <br>
+    {{ form.comments }}
+    <br>
+    <label for="id_patient">Patient:</label>
+    {{ form.patient }}
+    <br>
+    <label for="id_published_0">Release for view?</label>
+    {{ form.published }}
+    <input class='confirm left' type="submit" name="submit" value="Update"/>
+    <a class='delete' href="{% url 'results:viewTestResults' %}">Cancel</a>
+</form>
+
+{% endblock %}

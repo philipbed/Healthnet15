@@ -1,0 +1,16 @@
+{% extends "base/navbar.html" %}
+{% load app_filters %}
+
+{% block content %}
+
+<title>Upload test Results</title>
+
+<form id="UploadResults" class='form-center' method="post" action="{% url 'results:uploadTest' %}"enctype="multipart/form-data">
+    {%csrf_token%}
+    {{ form.errors }}
+    {{ form.as_p}}
+    <input class='confirm left' type="submit" name="submit" value="Upload"/>
+    <a class='delete' href="{% url 'results:viewTestResults' %}">Cancel</a>
+</form>
+
+{% endblock %}
